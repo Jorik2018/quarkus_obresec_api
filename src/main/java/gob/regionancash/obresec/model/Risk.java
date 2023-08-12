@@ -19,7 +19,6 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper=false,onlyExplicitlyIncluded = true)
