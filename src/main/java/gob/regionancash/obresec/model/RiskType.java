@@ -15,7 +15,6 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper=false,onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "risk_type")
 public class RiskType implements Serializable {

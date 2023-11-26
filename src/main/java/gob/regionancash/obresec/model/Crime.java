@@ -23,7 +23,6 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper=false,onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "crime")
 public class Crime  extends PanacheEntityBase {

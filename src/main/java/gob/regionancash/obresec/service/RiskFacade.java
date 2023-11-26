@@ -15,6 +15,8 @@ import org.isobit.app.model.User;
 import org.isobit.app.service.UserService;
 import org.isobit.util.AbstractFacade;
 import org.isobit.util.XUtil;
+
+import gob.regionancash.obresec.model.Crime;
 import gob.regionancash.obresec.model.Risk;
 
 @ApplicationScoped
@@ -22,6 +24,10 @@ public class RiskFacade extends AbstractFacade<Risk> implements RiskFacadeLocal 
 
     @Inject
     private UserService userService;
+
+    protected EntityManager getEntityManager() {
+        return Crime.getEntityManager();
+    }
 
     @Override
     public List<Risk> load(int first, int pageSize, String sortField, Map<String, Object> filters) {
