@@ -76,7 +76,7 @@ public class RiskFacade extends AbstractFacade<Risk> implements RiskFacadeLocal 
         User u = (User) userService.getCurrentUser();
         boolean ADMIN_CORESEC_OWN_CRIME = userService.access("ADMIN_CORESEC_OWN_CRIME");
 //        ql.add(em.createQuery("SELECT o FROM Risk o WHERE o.riskType.id");
-        ql.add(em.createQuery("SELECT o, " + (ADMIN_CORESEC_OWN_CRIME ? "(case when o.userId=" + u.getDirectoryId()+ " then 1 else 0 end)" : "1") + (sql = " FROM Risk o WHERE o.canceled=0 "
+        ql.add(em.createQuery("SELECT o, " + (ADMIN_CORESEC_OWN_CRIME ? "(case when o.userId=" + u.getDirectoryId()+ " then 1 else 0 end)" : "1") + (sql = " FROM Risk o WHERE o.canceled=FALSE "
                 + (from != null ? " AND o.fechaIni>=:from" : "")
                 + (to != null ? " AND o.fechaIni<=:to" : "")
                 + (riskType != null ? " AND o.riskType.id IN :riskType" : "")
