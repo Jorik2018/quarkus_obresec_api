@@ -14,7 +14,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.QueryParam;
 
-@Path("crime-type")
+@Path("crime/type")
 public class CrimeTypeFacadeREST{
 
     @Inject
