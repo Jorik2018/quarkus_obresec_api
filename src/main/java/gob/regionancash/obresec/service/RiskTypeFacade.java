@@ -26,7 +26,7 @@ public class RiskTypeFacade extends AbstractFacade<RiskType> implements RiskType
         List<Query> ql = new ArrayList();
         String sql;
         EntityManager em = this.getEntityManager();
-        ql.add(em.createQuery("SELECT o " + (sql="FROM RiskType o WHERE 1=1 AND o.canceled=0 "
+        ql.add(em.createQuery("SELECT o " + (sql="FROM RiskType o WHERE 1=1 AND o.canceled=FALSE "
                 //+ (filter != null ? " AND UPPER(w.name) like :filter" : "")
         )+"  ORDER BY 1 ASC"));
         if (pageSize > 0) {
