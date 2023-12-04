@@ -24,7 +24,6 @@ public class CrimeTypeFacadeREST{
     public void create(CrimeType entity) {
         ejbFacade.edit(entity);
     }
-
     @PUT
     @Path("{id}")
     public void edit(@PathParam("id") Integer id, CrimeType entity) {
