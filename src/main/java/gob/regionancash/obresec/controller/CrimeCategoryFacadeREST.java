@@ -17,7 +17,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
 
-@Path("crime-category")
+@Path("crime/category")
 public class CrimeCategoryFacadeREST {
 
     @Inject
