@@ -4,6 +4,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -57,36 +58,24 @@ public class SSHController {
         try {
             ChannelExec channel = (ChannelExec) session.openChannel("exec");
             channel.setCommand(command);
-            channel.connect();    
+            ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
+            channel.setOutputStream(responseStream);
+            channel.connect();
             InputStream errorStream = channel.getErrStream();
             BufferedReader errorReader = new BufferedReader(new InputStreamReader(errorStream));
             String errorLine;
             while ((errorLine = errorReader.readLine()) != null) {
                 output.append("ERROR: ").append(errorLine).append("\n");
             }
-            byte[] tmp = new byte[1024];
-            output.append("OUTPUT:" + command + ":");
-            try {
-                Thread.sleep(4000);
-            } catch (Exception ee) {
-            }
-            while (true) {
-                while (channel.getInputStream().available() > 0) {
-                    int i = channel.getInputStream().read(tmp, 0, 1024);
-                    if (i < 0)
-                        break;
-                    output.append(new String(tmp, 0, i));
-                }
-                if (channel.isClosed()) {
-                    if (channel.getInputStream().available() > 0)
-                        continue;
-                    break;
-                }
+            while (channel.isConnected()) {
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(500);
                 } catch (Exception ee) {
+                    output.append(ee);
                 }
             }
+            String responseString = new String(responseStream.toByteArray());
+            output.append(responseString);
             channel.disconnect();
         } catch (JSchException | IOException e) {
             e.printStackTrace();
