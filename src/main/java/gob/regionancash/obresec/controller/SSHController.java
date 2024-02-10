@@ -2,6 +2,11 @@ package gob.regionancash.obresec.controller;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import com.jcraft.jsch.*;
 
@@ -32,8 +37,15 @@ public class SSHController {
             channel.setCommand(command);
 
             channel.connect();
-
             StringBuilder output = new StringBuilder();
+        InputStream errorStream = channel.getErrStream();
+        BufferedReader errorReader = new BufferedReader(new InputStreamReader(errorStream));
+        String errorLine;
+        while ((errorLine = errorReader.readLine()) != null) {
+            output.append("ERROR: ").append(errorLine).append("\n");
+        }
+
+            
             byte[] tmp = new byte[1024];
             output.append("OUTPUT:"+command+":");
             while (true) {
