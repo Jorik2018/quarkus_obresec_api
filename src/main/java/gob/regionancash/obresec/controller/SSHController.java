@@ -67,7 +67,7 @@ public class SSHController {
             byte[] tmp = new byte[1024];
             output.append("OUTPUT:" + command + ":");
             try {
-                Thread.sleep(2000);
+                Thread.sleep(4000);
             } catch (Exception ee) {
             }
             while (true) {
