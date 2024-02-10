@@ -35,7 +35,7 @@ public class SSHController {
 
             StringBuilder output = new StringBuilder();
             byte[] tmp = new byte[1024];
-            output.append("OUTPUT:");
+            output.append("OUTPUT:"+command+":");
             while (true) {
                 while (channel.getInputStream().available() > 0) {
                     int i = channel.getInputStream().read(tmp, 0, 1024);
