@@ -17,6 +17,8 @@ dependencies {
     implementation 'io.quarkus:quarkus-arc'
     implementation 'io.quarkus:quarkus-smallrye-jwt'
 
+    implementation 'com.github.mwiede:jsch:0.2.16'
+
     implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
     implementation 'io.quarkus:quarkus-jdbc-mysql'
     implementation 'javax.ejb:ejb-api:3.0'
