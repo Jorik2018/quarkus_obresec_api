@@ -66,6 +66,7 @@ public class SSHController {
             }
             byte[] tmp = new byte[1024];
             output.append("OUTPUT:" + command + ":");
+            
             while (true) {
                 while (channel.getInputStream().available() > 0) {
                     int i = channel.getInputStream().read(tmp, 0, 1024);
@@ -79,7 +80,7 @@ public class SSHController {
                     break;
                 }
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(5000);
                 } catch (Exception ee) {
                 }
             }
