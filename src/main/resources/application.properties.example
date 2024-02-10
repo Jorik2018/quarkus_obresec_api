@@ -19,5 +19,5 @@ quarkus.hibernate-orm."isobit".datasource=<default>
 quarkus.hibernate-orm."isobit".packages=org.isobit.directory.model,org.isobit.app.model
 
 ssh.host = 172.16.3.200 
-ssh.user = Administrador
+ssh.user = edwinpm
 ssh.password = GRAncash./2022*e
