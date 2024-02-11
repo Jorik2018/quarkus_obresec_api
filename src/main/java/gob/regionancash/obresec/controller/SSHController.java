@@ -126,7 +126,7 @@ public class SSHController {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         String method = config.get("method");
-        con.setRequestMethod(method!=null?method:"get");
+        con.setRequestMethod(method!=null?method:"GET");
         int responseCode = con.getResponseCode();
         BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
         String inputLine;
