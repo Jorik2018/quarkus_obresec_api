@@ -72,6 +72,7 @@ public class SSHController {
                 }
             }
             String responseString = new String(responseStream.toByteArray());
+            output.append(">"+command+":");
             output.append(responseString);
             channel.disconnect();
         } catch (JSchException | IOException e) {
