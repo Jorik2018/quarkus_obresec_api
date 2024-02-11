@@ -52,6 +52,7 @@ public class SSHController {
 
     private String executeSingleSSHCommand(Session session, String command) {
         StringBuilder output = new StringBuilder();
+        output.append(">"+command+":");
         try {
             ChannelExec channel = (ChannelExec) session.openChannel("exec");
             channel.setCommand(command);
@@ -72,7 +73,7 @@ public class SSHController {
                 }
             }
             String responseString = new String(responseStream.toByteArray());
-            output.append(">"+command+":");
+            
             output.append(responseString);
             channel.disconnect();
         } catch (JSchException | IOException e) {
