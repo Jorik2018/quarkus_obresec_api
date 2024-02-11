@@ -52,7 +52,7 @@ public class SSHController {
 
     private String executeSingleSSHCommand(Session session, String command) {
         StringBuilder output = new StringBuilder();
-        output.append(">"+command+":");
+        output.append(">"+command+":").append("\n");
         try {
             ChannelExec channel = (ChannelExec) session.openChannel("exec");
             channel.setCommand(command);
