@@ -2,12 +2,9 @@ package gob.regionancash.obresec.controller;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.List;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
@@ -83,4 +80,36 @@ public class SSHController {
         }
         return output.toString();
     }
+
+    @GET
+    @Path("/download")
+    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    public Response downloadFile(@QueryParam("remotePath") String remotePath) {
+        try {
+            Session session = createSession();
+            session.connect();
+
+            ChannelSftp channelSftp = (ChannelSftp) session.openChannel("sftp");
+            channelSftp.connect();
+            File remoteFile = new File(remotePath);
+            File localFile = new  File(remoteFile.getName());
+            // Download file from remotePath to localPath
+            channelSftp.get(remotePath, localFile.getName());
+
+            channelSftp.disconnect();
+            session.disconnect();
+
+            // Return success response with the downloaded file
+            FileInputStream fileInputStream = new FileInputStream(localFile);
+            Response.ResponseBuilder responseBuilder = Response.ok(fileInputStream);
+            responseBuilder.header("Content-Disposition", "attachment; filename=\"" + localFile.getName() + "\"");
+
+            return responseBuilder.build();
+        } catch (JSchException | SftpException | FileNotFoundException e) {
+            e.printStackTrace();
+            // Return error response
+            return Response.serverError().entity("Error downloading file: " + e.getMessage()).build();
+        }
+    }
+
 }
