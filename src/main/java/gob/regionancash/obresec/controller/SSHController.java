@@ -5,8 +5,9 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 import java.io.*;
-import java.util.List;
-
+import java.util.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import com.jcraft.jsch.*;
 
@@ -114,6 +115,26 @@ public class SSHController {
             // Return error response
             return Response.serverError().entity("Error downloading file: " + e.getMessage()).build();
         }
+    }
+
+    @POST
+    @Path("/curl")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response curl(Map<String, String> config) throws IOException {
+        // The URL you want to send the GET request to
+        String url = config.get("url");
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+        con.setRequestMethod(config.getOrDefault("method","get"));
+        int responseCode = con.getResponseCode();
+        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        String inputLine;
+        StringBuilder response = new StringBuilder();
+        while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine);
+        }
+        in.close();
+        return Response.status(responseCode).entity(response.toString()).build();
     }
 
 }
