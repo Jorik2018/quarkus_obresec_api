@@ -32,7 +32,10 @@ public class SSHController {
             Session session = createSession();
             session.connect();
             for (String command : commands) {
-                output.append(executeSingleSSHCommand(session, command)).append("\n\n");
+                if(!command.startsWith("#")){
+                    output.append(">"+command+":").append("\n\n");
+                    output.append(executeSingleSSHCommand(session, command)).append("\n\n");
+                }
             }
             session.disconnect();
         } catch (JSchException e) {
@@ -52,7 +55,6 @@ public class SSHController {
 
     private String executeSingleSSHCommand(Session session, String command) {
         StringBuilder output = new StringBuilder();
-        output.append(">"+command+":").append("\n");
         try {
             ChannelExec channel = (ChannelExec) session.openChannel("exec");
             channel.setCommand(command);
