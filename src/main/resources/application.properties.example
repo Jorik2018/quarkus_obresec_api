@@ -14,7 +14,7 @@ mp.jwt.verify.publickey.location=E://projects/java/publicKey.pem
 quarkus.http.body.uploads-directory=C:\\Users\\pc\\AppData\\Local\\Temp
 
 isobit.upload-dir = E://wildfly/bin/.data
-quarkus.hibernate-orm.packages=org.isobit.directory.model,org.isobit.app.model,gob.regionancash.rh.model,gob.regionancash.obresec.model,io.quarkus.hibernate.orm.panache
+quarkus.hibernate-orm.packages=org.isobit.directory.model,org.isobit.app.model,gob.regionancash.rh.model,gob.regionancash.node.model,gob.regionancash.obresec.model,io.quarkus.hibernate.orm.panache
 quarkus.hibernate-orm."isobit".datasource=<default> 
 quarkus.hibernate-orm."isobit".packages=org.isobit.directory.model,org.isobit.app.model
 
