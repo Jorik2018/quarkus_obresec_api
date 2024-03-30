@@ -4,6 +4,12 @@ import gob.regionancash.node.model.MenuRouter;
 import gob.regionancash.node.model.Node;
 import gob.regionancash.node.model.NodeRevision;
 import gob.regionancash.node.model.UrlAlias;
+import io.quarkus.panache.common.Parameters;
+
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.QueryParam;
+
 
 @Path("node")
 public class NodeFacadeREST {
