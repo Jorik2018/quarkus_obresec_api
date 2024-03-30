@@ -43,4 +43,18 @@ public class FileFacadeREST {
         return Map.of("data", list);
     }
 
+    @GET
+    @Path("/download")
+    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    public Response downloadFile(@QueryParam("filename") String filename) {
+        try {
+            // Return success response with the downloaded file
+            FileInputStream fileInputStream = new FileInputStream(filename);
+            Response.ResponseBuilder responseBuilder = Response.ok(fileInputStream);
+            responseBuilder.header("Content-Disposition", "attachment; filename=\"" + filename.getName() + "\"");
+            return responseBuilder.build();
+        } catch (FileNotFoundException e) {
+            return Response.serverError().entity("Error downloading file: " + e.getMessage()).build();
+        }
+    }
 }
