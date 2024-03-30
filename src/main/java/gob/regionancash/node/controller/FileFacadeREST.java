@@ -8,7 +8,7 @@ import gob.regionancash.obresec.model.CrimeCategory;
 import gob.regionancash.obresec.service.CrimeCategoryFacadeLocal;
 import io.quarkus.panache.common.Parameters;
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
