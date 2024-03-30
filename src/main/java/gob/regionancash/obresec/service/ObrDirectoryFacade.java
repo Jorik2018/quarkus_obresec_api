@@ -42,7 +42,7 @@ public class ObrDirectoryFacade extends AbstractFacade<ObrDirectory> implements 
         List<Query> ql = new ArrayList();
         String sql;
         EntityManager em = this.getEntityManager();
-        ql.add(em.createQuery("SELECT o,p,po,d " + (sql = "FROM ObrDirectory o JOIN o.people p LEFT JOIN p.document d LEFT JOIN Contract po ON po.id=o.contractId WHERE 1=1 "
+        ql.add(em.createQuery("SELECT o,p,po,d " + (sql = "FROM ObrDirectory o JOIN o.people p LEFT JOIN p.documentType d LEFT JOIN Contract po ON po.id=o.contractId WHERE 1=1 "
                 + (company != null ? " AND UPPER(o.companyName) like :company" : "")
                 + (people != null ? " AND (UPPER(p.fullName) like :people OR UPPER(p.code) like :people)" : ""))
                 + "  ORDER BY 1 ASC"));
