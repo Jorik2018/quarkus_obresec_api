@@ -17,7 +17,3 @@ isobit.upload-dir = E://wildfly/bin/.data
 quarkus.hibernate-orm.packages=org.isobit.directory.model,org.isobit.app.model,gob.regionancash.rh.model,gob.regionancash.node.model,gob.regionancash.obresec.model,io.quarkus.hibernate.orm.panache
 quarkus.hibernate-orm."isobit".datasource=<default> 
 quarkus.hibernate-orm."isobit".packages=org.isobit.directory.model,org.isobit.app.model
-
-ssh.host = 172.16.3.200 
-ssh.user = edwinpm
-ssh.password = GRAncash./2022*e
