@@ -8,6 +8,10 @@ repositories {
     mavenLocal()
 }
 
+if (System.getProperty('os.name').toLowerCase().contains('mac')) {
+    project.ext.set('includeIsobitJar', true)
+}
+
 dependencies {
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation 'io.quarkus:quarkus-resteasy-reactive-jsonb'
@@ -28,7 +32,7 @@ dependencies {
 
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
-    implementation files('C:/projects/java/spring/java_isobit/build/libs/isobit.jar')
+    implementation files('/Users/ealarcop/Projects/java/java_isobit/build/libs/isobit.jar')
 }
 
 group 'gob.regionancash'
