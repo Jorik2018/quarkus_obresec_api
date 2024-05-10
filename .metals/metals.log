@@ -1,0 +1,583 @@
+2024.05.01 14:03:44 INFO  Started: Metals version 1.3.0 in folders '/Users/ealarcop/Projects/nodejs/vue/vue_sisme, /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api, /Users/ealarcop/Projects/nodejs/vue/vue_obresec_app, /Users/ealarcop/Projects/nodejs/angular/fin3/io-wappe-backoffice, /Users/ealarcop/Projects/cobol, /Users/ealarcop/Projects/php/wordpress/wp-content/plugins/wp_ib_directory, /Users/ealarcop/Projects/nodejs/vue/nuxt-site, /Users/ealarcop/Projects/python/jenkins_batch, /Users/ealarcop/Projects/java/spring/spring-boot-siaf, /Users/ealarcop/Projects/nodejs/vue/vue-siaf, /Users/ealarcop/Projects/nodejs/angular/everis-eps-retiro-4uit, /Users/ealarcop/Projects/scala/akka_erp' for client Visual Studio Code 1.86.2.
+SLF4J: Class path contains multiple SLF4J providers.
+SLF4J: Found provider [scribe.slf4j.ScribeServiceProvider@61462c20]
+SLF4J: Found provider [ch.qos.logback.classic.spi.LogbackServiceProvider@2318226f]
+SLF4J: See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual provider is of type [scribe.slf4j.ScribeServiceProvider@61462c20]
+2024.05.01 14:03:44 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.01 14:03:45 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.01 14:03:45 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.01 14:05:26 INFO  no build target found for /Users/ealarcop/Projects/scala/akka_erp/src/main/scala/example/Hello.scala. Using presentation compiler with project's scala-library version: 3.3.3
+2024.05.01 14:09:20 INFO  running '/Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/gradlew --stacktrace --console=plain --init-script /var/folders/92/rttg82xx023fyv7dmh9kq0rm0000gp/T/metals4029844270447496000/init-script.gradle bloopInstall'
+2024.05.01 14:09:20 ERROR Running process '/Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/gradlew --stacktrace --console=plain --init-script /var/folders/92/rttg82xx023fyv7dmh9kq0rm0000gp/T/metals4029844270447496000/init-script.gradle bloopInstall' failed
+java.io.IOException: Cannot run program "/Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/gradlew" (in directory "/Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api"): error=13, Permission denied
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+	at scala.meta.internal.process.SystemProcess$.run(SystemProcess.scala:46)
+	at scala.meta.internal.builds.ShellRunner.run(ShellRunner.scala:104)
+	at scala.meta.internal.builds.BloopInstall.runArgumentsUnconditionally(BloopInstall.scala:75)
+	at scala.meta.internal.builds.BloopInstall.$anonfun$runUnconditionally$1(BloopInstall.scala:49)
+	at scala.meta.internal.builds.BloopInstallProvider.bloopInstall(BloopInstallProvider.scala:19)
+	at scala.meta.internal.builds.BloopInstallProvider.bloopInstall$(BloopInstallProvider.scala:15)
+	at scala.meta.internal.builds.GradleBuildTool.bloopInstall(GradleBuildTool.scala:19)
+	at scala.meta.internal.builds.BloopInstall.runUnconditionally(BloopInstall.scala:46)
+	at scala.meta.internal.builds.BloopInstall.$anonfun$runIfApproved$3(BloopInstall.scala:148)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:840)
+Caused by: java.io.IOException: error=13, Permission denied
+	at java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:314)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:244)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+	at scala.meta.internal.process.SystemProcess$.run(SystemProcess.scala:46)
+	at scala.meta.internal.builds.ShellRunner.run(ShellRunner.scala:104)
+	at scala.meta.internal.builds.BloopInstall.runArgumentsUnconditionally(BloopInstall.scala:75)
+	at scala.meta.internal.builds.BloopInstall.$anonfun$runUnconditionally$1(BloopInstall.scala:49)
+	at scala.meta.internal.builds.BloopInstallProvider.bloopInstall(BloopInstallProvider.scala:19)
+	at scala.meta.internal.builds.BloopInstallProvider.bloopInstall$(BloopInstallProvider.scala:15)
+	at scala.meta.internal.builds.GradleBuildTool.bloopInstall(GradleBuildTool.scala:19)
+	at scala.meta.internal.builds.BloopInstall.runUnconditionally(BloopInstall.scala:46)
+	at scala.meta.internal.builds.BloopInstall.$anonfun$runIfApproved$3(BloopInstall.scala:148)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:840)
+
+2024.05.01 14:09:20 INFO  time: ran 'gradle bloopInstall' in 59ms
+2024.05.01 14:09:20 ERROR Gradle command failed: /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/gradlew --stacktrace --console=plain --init-script /var/folders/92/rttg82xx023fyv7dmh9kq0rm0000gp/T/metals4029844270447496000/init-script.gradle bloopInstall
+2024.05.01 14:23:41 WARN  no build target for: /Users/ealarcop/Projects/scala/akka_erp/build.sbt
+2024.05.01 14:23:43 INFO  running '/opt/homebrew/bin/sbt -Dbloop.export-jar-classifiers=sources bloopInstall'
+2024.05.01 14:23:43 INFO  copying runtime jar...
+2024.05.01 14:23:43 WARN  no build target for: /Users/ealarcop/Projects/scala/akka_erp/project/metals.sbt
+2024.05.01 14:23:43 WARN  no build target for: /Users/ealarcop/Projects/scala/akka_erp/project/project/metals.sbt
+2024.05.01 14:23:48 INFO  [info] welcome to sbt 1.9.9 (Eclipse Adoptium Java 17.0.10)
+2024.05.01 14:23:48 INFO  [info] loading settings for project akka_erp-build-build from metals.sbt ...
+2024.05.01 14:23:49 INFO  [info] loading project definition from /Users/ealarcop/Projects/scala/akka_erp/project/project
+2024.05.01 14:23:53 INFO  [info] loading settings for project akka_erp-build from metals.sbt ...
+2024.05.01 14:23:53 INFO  [info] loading project definition from /Users/ealarcop/Projects/scala/akka_erp/project
+2024.05.01 14:24:36 INFO  skipping build import with status 'Started'
+2024.05.01 14:24:45 INFO  [success] Generated .bloop/akka_erp-build.json
+2024.05.01 14:24:45 INFO  [info] compiling 1 Scala source to /Users/ealarcop/Projects/scala/akka_erp/project/target/scala-2.12/sbt-1.0/classes ...
+2024.05.01 14:24:45 INFO  [info] Non-compiled module 'compiler-bridge_2.12' for Scala 2.12.18. Compiling...
+2024.05.01 14:24:49 INFO  [info]   Compilation completed in 3.786s.
+2024.05.01 14:24:49 INFO  [info] done compiling
+2024.05.01 14:24:49 INFO  [success] Total time: 57 s, completed 1 may. 2024 14:24:50
+2024.05.01 14:24:50 INFO  [info] loading settings for project root from build.sbt ...
+2024.05.01 14:24:50 INFO  [info] set current project to akka_erp (in build file:/Users/ealarcop/Projects/scala/akka_erp/)
+2024.05.01 14:25:07 INFO  [success] Generated .bloop/root.json
+2024.05.01 14:25:07 INFO  [success] Generated .bloop/root-test.json
+2024.05.01 14:25:07 INFO  [success] Total time: 17 s, completed 1 may. 2024 14:25:07
+2024.05.01 14:25:07 INFO  time: ran 'sbt bloopInstall' in 1m24s
+2024.05.01 14:25:07 INFO  Attempting to connect to the build server...
+2024.05.01 14:25:07 INFO  Setting up current java home /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home in /Users/ealarcop/.bloop/bloop.json
+2024.05.01 14:26:18 ERROR Starting the bsp launcher for bloop...
+2024.05.01 14:26:18 ERROR Opening a bsp server connection with 'bsp --protocol local --socket /var/folders/92/rttg82xx023fyv7dmh9kq0rm0000gp/T/bsp-launcher12442340702028030947/bsp.socket'...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR error: Giving up on waiting for a connection, printing embedded bloop logs:
+2024.05.01 14:26:18 ERROR > No server running at 127.0.0.1:8212, let's fire one...
+2024.05.01 14:26:18 ERROR > Resolving ch.epfl.scala:bloop-frontend_2.12:1.5.17...
+2024.05.01 14:26:18 ERROR error: Trying a tcp-based connection to the server instead...
+2024.05.01 14:26:18 ERROR Opening a bsp server connection with 'bsp --protocol tcp --port 33246'...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR Waiting for the bsp connection to come up...
+2024.05.01 14:26:18 ERROR error: Giving up on waiting for a connection, printing embedded bloop logs:
+2024.05.01 14:26:18 ERROR > No server running at 127.0.0.1:8212, let's fire one...
+2024.05.01 14:26:18 ERROR > Resolving ch.epfl.scala:bloop-frontend_2.12:1.5.17...
+2024.05.01 14:26:18 ERROR error: The launcher failed to establish a bsp connection, aborting...
+2024.05.01 14:26:18 ERROR Failed to connect with build server, no functionality will work.
+java.lang.RuntimeException: The server did not start, got FailedToOpenBspConnection
+	at bloop.launcher.LauncherMain.failPromise$1(Launcher.scala:92)
+	at bloop.launcher.LauncherMain.runLauncher(Launcher.scala:119)
+	at scala.meta.internal.metals.BloopServers$$anon$2.run(BloopServers.scala:355)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:840)
+
+2024.05.01 14:28:08 INFO  Shutting down server
+2024.05.01 14:28:08 INFO  shutting down Metals
+2024.05.01 14:28:08 INFO  Exiting server
+2024.05.01 14:28:33 INFO  Started: Metals version 1.3.0 in folders '/Users/ealarcop/Projects/nodejs/vue/vue_sisme, /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api, /Users/ealarcop/Projects/nodejs/vue/vue_obresec_app, /Users/ealarcop/Projects/nodejs/angular/fin3/io-wappe-backoffice, /Users/ealarcop/Projects/cobol, /Users/ealarcop/Projects/php/wordpress/wp-content/plugins/wp_ib_directory, /Users/ealarcop/Projects/nodejs/vue/nuxt-site, /Users/ealarcop/Projects/python/jenkins_batch, /Users/ealarcop/Projects/java/spring/spring-boot-siaf, /Users/ealarcop/Projects/nodejs/vue/vue-siaf, /Users/ealarcop/Projects/nodejs/angular/everis-eps-retiro-4uit, /Users/ealarcop/Projects/scala/akka_erp' for client Visual Studio Code 1.86.2.
+SLF4J: Class path contains multiple SLF4J providers.
+SLF4J: Found provider [scribe.slf4j.ScribeServiceProvider@35887e33]
+SLF4J: Found provider [ch.qos.logback.classic.spi.LogbackServiceProvider@5a5050ec]
+SLF4J: See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual provider is of type [scribe.slf4j.ScribeServiceProvider@35887e33]
+2024.05.01 14:28:33 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.01 14:28:34 INFO  Attempting to connect to the build server...
+2024.05.01 14:28:35 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.01 14:28:35 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.01 14:28:35 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/ealarcop/Projects/scala/akka_erp/.metals/bsp.trace.json or /Users/ealarcop/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.05.01 14:28:35 INFO  skipping build import with status 'Failed'
+may. 01, 2024 2:28:36 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+ADVERTENCIA: Unmatched cancel notification for request id 8
+may. 01, 2024 2:28:36 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+ADVERTENCIA: Unmatched cancel notification for request id 10
+2024.05.01 14:28:44 INFO  no build target found for /Users/ealarcop/Projects/scala/akka_erp/src/main/scala/example/Hello.scala. Using presentation compiler with project's scala-library version: 3.3.3
+2024.05.01 14:28:55 ERROR Timeout waiting for 'build/initialize' response
+2024.05.01 14:28:55 WARN  Retrying connection to the build server Bloop
+2024.05.01 14:28:55 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/ealarcop/Projects/scala/akka_erp/.metals/bsp.trace.json or /Users/ealarcop/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.05.01 14:29:15 ERROR Timeout waiting for 'build/initialize' response
+2024.05.01 14:29:15 WARN  Retrying connection to the build server Bloop
+2024.05.01 14:29:15 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/ealarcop/Projects/scala/akka_erp/.metals/bsp.trace.json or /Users/ealarcop/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.05.01 14:29:32 WARN  no build target for: /Users/ealarcop/Projects/scala/akka_erp/src/main/scala/example/Hello.scala
+2024.05.01 14:29:35 ERROR Timeout waiting for 'build/initialize' response
+2024.05.01 14:29:35 WARN  Retrying connection to the build server Bloop
+2024.05.01 14:29:35 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/ealarcop/Projects/scala/akka_erp/.metals/bsp.trace.json or /Users/ealarcop/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.05.01 14:29:55 ERROR Timeout waiting for 'build/initialize' response
+2024.05.01 14:29:55 WARN  Retrying connection to the build server Bloop
+2024.05.01 14:29:55 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/ealarcop/Projects/scala/akka_erp/.metals/bsp.trace.json or /Users/ealarcop/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.05.01 14:30:05 WARN  Stopped configuration of Scala SemanticDB in 2.13.12 projects: Error downloading org.scalameta:semanticdb-scalac_2.13.12:4.9.3
+  not found: /Users/ealarcop/.ivy2/local/org.scalameta/semanticdb-scalac_2.13.12/4.9.3/ivys/ivy.xml
+  download error: Caught java.net.UnknownHostException (repo1.maven.org) while downloading https://repo1.maven.org/maven2/org/scalameta/semanticdb-scalac_2.13.12/4.9.3/semanticdb-scalac_2.13.12-4.9.3.pom
+After retry no existing semanticdb version found for scala version 2.13.12
+2024.05.01 14:30:05 WARN  Stopped configuration of Scala SemanticDB in 2.13.12 projects: Error downloading org.scalameta:semanticdb-scalac_2.13.12:4.9.3
+  not found: /Users/ealarcop/.ivy2/local/org.scalameta/semanticdb-scalac_2.13.12/4.9.3/ivys/ivy.xml
+  download error: Caught java.net.UnknownHostException (repo1.maven.org) while downloading https://repo1.maven.org/maven2/org/scalameta/semanticdb-scalac_2.13.12/4.9.3/semanticdb-scalac_2.13.12-4.9.3.pom
+After retry no existing semanticdb version found for scala version 2.13.12
+2024.05.01 14:30:05 INFO  Attempting to connect to the build server...
+2024.05.01 14:30:05 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/ealarcop/Projects/scala/akka_erp/project/.metals/bsp.trace.json or /Users/ealarcop/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.05.01 14:30:05 WARN  Stopped configuration of Scala SemanticDB in 2.12.18 projects: Error downloading org.scalameta:semanticdb-scalac_2.12.18:4.9.3
+  not found: /Users/ealarcop/.ivy2/local/org.scalameta/semanticdb-scalac_2.12.18/4.9.3/ivys/ivy.xml
+  download error: Caught java.net.UnknownHostException (repo1.maven.org) while downloading https://repo1.maven.org/maven2/org/scalameta/semanticdb-scalac_2.12.18/4.9.3/semanticdb-scalac_2.12.18-4.9.3.pom
+After retry no existing semanticdb version found for scala version 2.12.18
+2024.05.01 14:30:05 INFO  time: Connected to build server in 1m30s
+2024.05.01 14:30:05 INFO  Connected to Build server: Bloop v1.5.17
+2024.05.01 14:30:46 WARN  Stopped configuration of Scala SemanticDB in 2.13.12 projects: Error downloading org.scalameta:semanticdb-scalac_2.13.12:4.9.3
+  not found: /Users/ealarcop/.ivy2/local/org.scalameta/semanticdb-scalac_2.13.12/4.9.3/ivys/ivy.xml
+  download error: Caught java.net.SocketException (Connection reset) while downloading https://repo1.maven.org/maven2/org/scalameta/semanticdb-scalac_2.13.12/4.9.3/semanticdb-scalac_2.13.12-4.9.3.pom
+After retry no existing semanticdb version found for scala version 2.13.12
+2024.05.01 14:30:46 WARN  Stopped configuration of Scala SemanticDB in 2.13.12 projects: Error downloading org.scalameta:semanticdb-scalac_2.13.12:4.9.3
+  not found: /Users/ealarcop/.ivy2/local/org.scalameta/semanticdb-scalac_2.13.12/4.9.3/ivys/ivy.xml
+  download error: Caught java.net.SocketException (Connection reset) while downloading https://repo1.maven.org/maven2/org/scalameta/semanticdb-scalac_2.13.12/4.9.3/semanticdb-scalac_2.13.12-4.9.3.pom
+After retry no existing semanticdb version found for scala version 2.13.12
+2024.05.01 14:31:34 WARN  Stopped configuration of Scala SemanticDB in 2.13.12 projects: Error downloading org.scalameta:semanticdb-scalac_2.13.12:4.9.3
+  not found: /Users/ealarcop/.ivy2/local/org.scalameta/semanticdb-scalac_2.13.12/4.9.3/ivys/ivy.xml
+  download error: Caught java.net.SocketException (Connection reset) while downloading https://repo1.maven.org/maven2/org/scalameta/semanticdb-scalac_2.13.12/4.9.3/semanticdb-scalac_2.13.12-4.9.3.pom
+After retry no existing semanticdb version found for scala version 2.13.12
+may. 01, 2024 2:39:27 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+ADVERTENCIA: Unmatched cancel notification for request id 94
+may. 01, 2024 2:39:27 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+ADVERTENCIA: Unmatched cancel notification for request id 99
+may. 01, 2024 2:39:27 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+ADVERTENCIA: Unmatched cancel notification for request id 100
+may. 01, 2024 2:39:27 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+ADVERTENCIA: Unmatched cancel notification for request id 104
+2024.05.01 14:40:11 INFO  time: indexed workspace in 10m6s
+2024.05.01 14:40:13 INFO  compiling root (1 scala source)
+2024.05.01 14:40:14 INFO  compiling root-test (1 scala source)
+2024.05.01 14:40:16 INFO  time: compiled root in 3.25s
+2024.05.01 14:40:16 INFO  time: compiled root-test in 1.78s
+2024.05.01 14:40:22 INFO  compiling root (1 scala source)
+2024.05.01 14:40:22 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
+2024.05.01 14:40:22 INFO  time: compiled root in 0.24s
+Downloading https://repo1.maven.org/maven2/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+Downloading https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+Downloaded https://repo1.maven.org/maven2/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+Downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+Downloading https://repo1.maven.org/maven2/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom.sha1
+Downloading https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom.sha1
+Downloaded https://repo1.maven.org/maven2/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom.sha1
+Downloaded https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom.sha1
+Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom.sha1
+Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom.sha1
+Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom.sha1
+Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom.sha1
+Downloading https://oss.sonatype.org/content/repositories/public/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+Downloading https://oss.sonatype.org/content/repositories/public/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+Downloaded https://oss.sonatype.org/content/repositories/public/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+Downloading https://oss.sonatype.org/content/repositories/public/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom.sha1
+Downloaded https://oss.sonatype.org/content/repositories/public/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+Downloading https://oss.sonatype.org/content/repositories/public/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom.sha1
+Downloaded https://oss.sonatype.org/content/repositories/public/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom.sha1
+Downloaded https://oss.sonatype.org/content/repositories/public/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom.sha1
+2024.05.01 14:41:16 ERROR scalafmt: /Users/ealarcop/Projects/scala/akka_erp/.scalafmt.conf
+org.scalafmt.interfaces.ScalafmtException: [v3.7.15] failed to download
+Caused by: coursierapi.error.MultipleResolutionError: Error downloading org.scala-lang:scala-reflect:2.13.11
+  not found: /Users/ealarcop/.ivy2/local/org.scala-lang/scala-reflect/2.13.11/ivys/ivy.xml
+  download error: Caught java.net.UnknownHostException (repo1.maven.org) while downloading https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+  download error: Caught java.net.UnknownHostException (oss.sonatype.org) while downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+  download error: Caught java.net.UnknownHostException (oss.sonatype.org) while downloading https://oss.sonatype.org/content/repositories/public/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+Error downloading org.scalameta:scalafmt-core_2.13:3.7.15
+  not found: /Users/ealarcop/.ivy2/local/org.scalameta/scalafmt-core_2.13/3.7.15/ivys/ivy.xml
+  download error: Caught java.net.UnknownHostException (repo1.maven.org) while downloading https://repo1.maven.org/maven2/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+  download error: Caught java.net.UnknownHostException (oss.sonatype.org) while downloading https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+  download error: Caught java.net.UnknownHostException (oss.sonatype.org) while downloading https://oss.sonatype.org/content/repositories/public/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+
+	at coursierapi.error.MultipleResolutionError.of(MultipleResolutionError.java:28)
+	at coursierapi.shaded.coursier.internal.api.ApiHelper$.doFetch(ApiHelper.scala:412)
+	at coursierapi.shaded.coursier.internal.api.ApiHelper.doFetch(ApiHelper.scala)
+	at coursierapi.Fetch.fetchResult(Fetch.java:244)
+	at coursierapi.Fetch.fetch(Fetch.java:239)
+	at org.scalafmt.dynamic.CoursierDependencyDownloader.$anonfun$download$1(CoursierDependencyDownloader.scala:25)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.scalafmt.dynamic.CoursierDependencyDownloader.download(CoursierDependencyDownloader.scala:16)
+	at org.scalafmt.dynamic.ScalafmtModuleLoader$WithDownloader.load(ScalafmtModuleLoader.scala:34)
+	at org.scalafmt.dynamic.ScalafmtModuleLoader$CachedProxy.load$1(ScalafmtModuleLoader.scala:56)
+	at org.scalafmt.dynamic.ScalafmtModuleLoader$CachedProxy.$anonfun$load$3(ScalafmtModuleLoader.scala:57)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.scalafmt.dynamic.utils.ReentrantCache.getOrAddToCache(ReentrantCache.scala:41)
+	at org.scalafmt.dynamic.ScalafmtModuleLoader$CachedProxy.load(ScalafmtModuleLoader.scala:57)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$.$anonfun$load$1(ScalafmtConfigLoader.scala:34)
+	at scala.util.Either.flatMap(Either.scala:360)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$.load(ScalafmtConfigLoader.scala:32)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$CachedProxy.load$1(ScalafmtConfigLoader.scala:74)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$CachedProxy.$anonfun$load$12(ScalafmtConfigLoader.scala:76)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.scalafmt.dynamic.utils.ReentrantCache.getOrAddToCache(ReentrantCache.scala:41)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$CachedProxy.$anonfun$load$7(ScalafmtConfigLoader.scala:76)
+	at scala.util.Success.fold(Try.scala:289)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$CachedProxy.load(ScalafmtConfigLoader.scala:70)
+	at org.scalafmt.dynamic.ScalafmtDynamic.resolveConfig(ScalafmtDynamic.scala:59)
+	at org.scalafmt.dynamic.ScalafmtDynamic.createSession(ScalafmtDynamic.scala:53)
+	at org.scalafmt.dynamic.ScalafmtDynamic.format(ScalafmtDynamic.scala:50)
+	at scala.meta.internal.metals.FormattingProvider.runFormat(FormattingProvider.scala:152)
+	at scala.meta.internal.metals.FormattingProvider.$anonfun$format$1(FormattingProvider.scala:118)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:840)
+
+2024.05.01 14:45:45 ERROR scalafmt: /Users/ealarcop/Projects/scala/akka_erp/.scalafmt.conf
+org.scalafmt.interfaces.ScalafmtException: [v3.7.15] failed to download
+Caused by: coursierapi.error.MultipleResolutionError: Error downloading org.scala-lang:scala-reflect:2.13.11
+  not found: /Users/ealarcop/.ivy2/local/org.scala-lang/scala-reflect/2.13.11/ivys/ivy.xml
+  download error: Caught java.net.UnknownHostException (repo1.maven.org) while downloading https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+  download error: Caught java.net.UnknownHostException (oss.sonatype.org) while downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+  download error: Caught java.net.UnknownHostException (oss.sonatype.org) while downloading https://oss.sonatype.org/content/repositories/public/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+Error downloading org.scalameta:scalafmt-core_2.13:3.7.15
+  not found: /Users/ealarcop/.ivy2/local/org.scalameta/scalafmt-core_2.13/3.7.15/ivys/ivy.xml
+  download error: Caught java.net.UnknownHostException (repo1.maven.org) while downloading https://repo1.maven.org/maven2/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+  download error: Caught java.net.UnknownHostException (oss.sonatype.org) while downloading https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+  download error: Caught java.net.UnknownHostException (oss.sonatype.org) while downloading https://oss.sonatype.org/content/repositories/public/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+
+	at coursierapi.error.MultipleResolutionError.of(MultipleResolutionError.java:28)
+	at coursierapi.shaded.coursier.internal.api.ApiHelper$.doFetch(ApiHelper.scala:412)
+	at coursierapi.shaded.coursier.internal.api.ApiHelper.doFetch(ApiHelper.scala)
+	at coursierapi.Fetch.fetchResult(Fetch.java:244)
+	at coursierapi.Fetch.fetch(Fetch.java:239)
+	at org.scalafmt.dynamic.CoursierDependencyDownloader.$anonfun$download$1(CoursierDependencyDownloader.scala:25)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.scalafmt.dynamic.CoursierDependencyDownloader.download(CoursierDependencyDownloader.scala:16)
+	at org.scalafmt.dynamic.ScalafmtModuleLoader$WithDownloader.load(ScalafmtModuleLoader.scala:34)
+	at org.scalafmt.dynamic.ScalafmtModuleLoader$CachedProxy.load$1(ScalafmtModuleLoader.scala:56)
+	at org.scalafmt.dynamic.ScalafmtModuleLoader$CachedProxy.$anonfun$load$3(ScalafmtModuleLoader.scala:57)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.scalafmt.dynamic.utils.ReentrantCache.getOrAddToCache(ReentrantCache.scala:41)
+	at org.scalafmt.dynamic.ScalafmtModuleLoader$CachedProxy.load(ScalafmtModuleLoader.scala:57)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$.$anonfun$load$1(ScalafmtConfigLoader.scala:34)
+	at scala.util.Either.flatMap(Either.scala:360)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$.load(ScalafmtConfigLoader.scala:32)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$CachedProxy.load$1(ScalafmtConfigLoader.scala:74)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$CachedProxy.$anonfun$load$12(ScalafmtConfigLoader.scala:76)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.scalafmt.dynamic.utils.ReentrantCache.getOrAddToCache(ReentrantCache.scala:41)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$CachedProxy.$anonfun$load$7(ScalafmtConfigLoader.scala:76)
+	at scala.util.Success.fold(Try.scala:289)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$CachedProxy.load(ScalafmtConfigLoader.scala:70)
+	at org.scalafmt.dynamic.ScalafmtDynamic.resolveConfig(ScalafmtDynamic.scala:59)
+	at org.scalafmt.dynamic.ScalafmtDynamic.createSession(ScalafmtDynamic.scala:53)
+	at org.scalafmt.dynamic.ScalafmtDynamic.format(ScalafmtDynamic.scala:50)
+	at scala.meta.internal.metals.FormattingProvider.runFormat(FormattingProvider.scala:152)
+	at scala.meta.internal.metals.FormattingProvider.$anonfun$format$1(FormattingProvider.scala:118)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:840)
+
+2024.05.01 14:49:08 ERROR scalafmt: /Users/ealarcop/Projects/scala/akka_erp/.scalafmt.conf
+org.scalafmt.interfaces.ScalafmtException: [v3.7.15] failed to download
+Caused by: coursierapi.error.MultipleResolutionError: Error downloading org.scala-lang:scala-reflect:2.13.11
+  not found: /Users/ealarcop/.ivy2/local/org.scala-lang/scala-reflect/2.13.11/ivys/ivy.xml
+  download error: Caught java.net.UnknownHostException (repo1.maven.org) while downloading https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+  download error: Caught java.net.UnknownHostException (oss.sonatype.org) while downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+  download error: Caught java.net.UnknownHostException (oss.sonatype.org) while downloading https://oss.sonatype.org/content/repositories/public/org/scala-lang/scala-reflect/2.13.11/scala-reflect-2.13.11.pom
+Error downloading org.scalameta:scalafmt-core_2.13:3.7.15
+  not found: /Users/ealarcop/.ivy2/local/org.scalameta/scalafmt-core_2.13/3.7.15/ivys/ivy.xml
+  download error: Caught java.net.UnknownHostException (repo1.maven.org) while downloading https://repo1.maven.org/maven2/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+  download error: Caught java.net.UnknownHostException (oss.sonatype.org) while downloading https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+  download error: Caught java.net.UnknownHostException (oss.sonatype.org) while downloading https://oss.sonatype.org/content/repositories/public/org/scalameta/scalafmt-core_2.13/3.7.15/scalafmt-core_2.13-3.7.15.pom
+
+	at coursierapi.error.MultipleResolutionError.of(MultipleResolutionError.java:28)
+	at coursierapi.shaded.coursier.internal.api.ApiHelper$.doFetch(ApiHelper.scala:412)
+	at coursierapi.shaded.coursier.internal.api.ApiHelper.doFetch(ApiHelper.scala)
+	at coursierapi.Fetch.fetchResult(Fetch.java:244)
+	at coursierapi.Fetch.fetch(Fetch.java:239)
+	at org.scalafmt.dynamic.CoursierDependencyDownloader.$anonfun$download$1(CoursierDependencyDownloader.scala:25)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.scalafmt.dynamic.CoursierDependencyDownloader.download(CoursierDependencyDownloader.scala:16)
+	at org.scalafmt.dynamic.ScalafmtModuleLoader$WithDownloader.load(ScalafmtModuleLoader.scala:34)
+	at org.scalafmt.dynamic.ScalafmtModuleLoader$CachedProxy.load$1(ScalafmtModuleLoader.scala:56)
+	at org.scalafmt.dynamic.ScalafmtModuleLoader$CachedProxy.$anonfun$load$3(ScalafmtModuleLoader.scala:57)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.scalafmt.dynamic.utils.ReentrantCache.getOrAddToCache(ReentrantCache.scala:41)
+	at org.scalafmt.dynamic.ScalafmtModuleLoader$CachedProxy.load(ScalafmtModuleLoader.scala:57)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$.$anonfun$load$1(ScalafmtConfigLoader.scala:34)
+	at scala.util.Either.flatMap(Either.scala:360)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$.load(ScalafmtConfigLoader.scala:32)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$CachedProxy.load$1(ScalafmtConfigLoader.scala:74)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$CachedProxy.$anonfun$load$12(ScalafmtConfigLoader.scala:76)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.scalafmt.dynamic.utils.ReentrantCache.getOrAddToCache(ReentrantCache.scala:41)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$CachedProxy.$anonfun$load$7(ScalafmtConfigLoader.scala:76)
+	at scala.util.Success.fold(Try.scala:289)
+	at org.scalafmt.dynamic.ScalafmtConfigLoader$CachedProxy.load(ScalafmtConfigLoader.scala:70)
+	at org.scalafmt.dynamic.ScalafmtDynamic.resolveConfig(ScalafmtDynamic.scala:59)
+	at org.scalafmt.dynamic.ScalafmtDynamic.createSession(ScalafmtDynamic.scala:53)
+	at org.scalafmt.dynamic.ScalafmtDynamic.format(ScalafmtDynamic.scala:50)
+	at scala.meta.internal.metals.FormattingProvider.runFormat(FormattingProvider.scala:152)
+	at scala.meta.internal.metals.FormattingProvider.$anonfun$format$1(FormattingProvider.scala:118)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:840)
+
+2024.05.01 15:03:04 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log
+2024.05.01 15:03:04 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.01 15:03:14 INFO  no build target found for /Users/ealarcop/Projects/scala/akka-quickstart-scala/build.sbt. Using presentation compiler with project's scala-library version: 3.3.3
+may. 01, 2024 7:07:30 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFORMACIÓN: Unsupported notification method: $/setTrace
+2024.05.01 19:07:30 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log
+may. 01, 2024 10:00:51 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFORMACIÓN: Unsupported notification method: $/setTrace
+2024.05.01 22:00:51 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log
+2024.05.02 09:07:54 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.02 09:07:54 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.02 09:52:21 INFO  no build target found for /Users/ealarcop/Projects/vaadin/vaadin-hilla-react/src/main/java/com/example/application/Application.java. Using presentation compiler with project's scala-library version: 3.3.3
+may. 02, 2024 9:52:21 A. M. scala.meta.internal.pc.CompilerAccess handleError
+GRAVE: A severe compiler error occurred, full details of the error can be found in the error report /Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/.reports/metals-full/2024-05-02/r_compiler-error_09-52-21-924.md
+may. 02, 2024 9:52:43 A. M. scala.meta.internal.pc.CompilerAccess handleError
+GRAVE: A severe compiler error occurred, full details of the error can be found in the error report /Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/.reports/metals-full/2024-05-02/r_compiler-error_09-52-43-871.md
+2024.05.02 11:25:36 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.02 11:32:25 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.02 11:32:25 INFO  Shutting down server
+2024.05.02 11:32:25 INFO  shutting down Metals
+may. 02, 2024 11:32:26 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint notify
+INFORMACIÓN: Failed to send notification message.
+org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.nio.channels.AsynchronousCloseException
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.notify(RemoteEndpoint.java:126)
+	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:88)
+	at jdk.proxy2/jdk.proxy2.$Proxy11.onBuildExit(Unknown Source)
+	at scala.meta.internal.metals.BuildServerConnection.$anonfun$shutdown$1(BuildServerConnection.scala:171)
+	at scala.meta.internal.metals.BuildServerConnection.$anonfun$shutdown$1$adapted(BuildServerConnection.scala:167)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.nio.channels.AsynchronousCloseException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:202)
+	at java.base/sun.nio.ch.SinkChannelImpl.endWrite(SinkChannelImpl.java:263)
+	at java.base/sun.nio.ch.SinkChannelImpl.write(SinkChannelImpl.java:285)
+	at java.base/java.nio.channels.Channels.writeFullyImpl(Channels.java:74)
+	at java.base/java.nio.channels.Channels.writeFully(Channels.java:93)
+	at java.base/java.nio.channels.Channels$1.write(Channels.java:171)
+	at java.base/java.io.OutputStream.write(OutputStream.java:127)
+	at java.base/java.nio.channels.Channels$1.write(Channels.java:151)
+	at scala.meta.internal.metals.ClosableOutputStream.write(ClosableOutputStream.scala:26)
+	at java.base/java.io.FilterOutputStream.write(FilterOutputStream.java:137)
+	at java.base/java.io.FilterOutputStream.write(FilterOutputStream.java:108)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:67)
+	... 10 more
+
+may. 02, 2024 11:32:26 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint notify
+INFORMACIÓN: Failed to send notification message.
+org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.nio.channels.AsynchronousCloseException
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.notify(RemoteEndpoint.java:126)
+	at org.eclipse.lsp4j.jsonrpc.services.EndpointProxy.invoke(EndpointProxy.java:88)
+	at jdk.proxy2/jdk.proxy2.$Proxy11.onBuildExit(Unknown Source)
+	at scala.meta.internal.metals.BuildServerConnection.$anonfun$shutdown$1(BuildServerConnection.scala:171)
+	at scala.meta.internal.metals.BuildServerConnection.$anonfun$shutdown$1$adapted(BuildServerConnection.scala:167)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.nio.channels.AsynchronousCloseException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:202)
+	at java.base/sun.nio.ch.SinkChannelImpl.endWrite(SinkChannelImpl.java:263)
+	at java.base/sun.nio.ch.SinkChannelImpl.write(SinkChannelImpl.java:285)
+	at java.base/java.nio.channels.Channels.writeFullyImpl(Channels.java:74)
+	at java.base/java.nio.channels.Channels.writeFully(Channels.java:93)
+	at java.base/java.nio.channels.Channels$1.write(Channels.java:171)
+	at java.base/java.io.OutputStream.write(OutputStream.java:127)
+	at java.base/java.nio.channels.Channels$1.write(Channels.java:151)
+	at scala.meta.internal.metals.ClosableOutputStream.write(ClosableOutputStream.scala:26)
+	at java.base/java.io.FilterOutputStream.write(FilterOutputStream.java:137)
+	at java.base/java.io.FilterOutputStream.write(FilterOutputStream.java:108)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:67)
+	... 9 more
+
+2024.05.02 11:32:26 INFO  Shut down connection with build server.
+2024.05.02 11:32:26 INFO  Shut down connection with build server.
+2024.05.02 11:32:26 INFO  Exiting server
+2024.05.02 11:32:33 INFO  Started: Metals version 1.3.0 in folders '/Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api, /Users/ealarcop/Projects/nodejs/vue/vue_obresec_app, /Users/ealarcop/Projects/nodejs/angular/fin3/io-wappe-backoffice, /Users/ealarcop/Projects/cobol, /Users/ealarcop/Projects/php/wordpress/wp-content/plugins/wp_ib_directory, /Users/ealarcop/Projects/nodejs/vue/nuxt-site, /Users/ealarcop/Projects/python/jenkins_batch, /Users/ealarcop/Projects/java/spring/spring-boot-siaf, /Users/ealarcop/Projects/nodejs/vue/vue-siaf, /Users/ealarcop/Projects/nodejs/angular/everis-eps-retiro-4uit, /Users/ealarcop/Projects/scala/akka_erp, /Users/ealarcop/Projects/scala/akka-quickstart-scala, /Users/ealarcop/Projects/vaadin/vaadin-hilla-react, /Users/ealarcop/Projects/nodejs/vue/isobit-ui' for client Visual Studio Code 1.86.2.
+SLF4J: Class path contains multiple SLF4J providers.
+SLF4J: Found provider [scribe.slf4j.ScribeServiceProvider@fb5d6b]
+SLF4J: Found provider [ch.qos.logback.classic.spi.LogbackServiceProvider@405ae758]
+SLF4J: See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual provider is of type [scribe.slf4j.ScribeServiceProvider@fb5d6b]
+2024.05.02 11:32:34 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.02 11:32:34 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.02 11:32:34 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.02 11:32:34 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.02 11:32:34 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.02 11:32:35 INFO  Attempting to connect to the build server...
+2024.05.02 11:32:35 INFO  skipping build import with status 'Failed'
+2024.05.02 11:32:36 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/ealarcop/Projects/scala/akka_erp/.metals/bsp.trace.json or /Users/ealarcop/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.05.02 11:32:56 ERROR Timeout waiting for 'build/initialize' response
+2024.05.02 11:32:56 WARN  Retrying connection to the build server Bloop
+2024.05.02 11:32:56 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/ealarcop/Projects/scala/akka_erp/.metals/bsp.trace.json or /Users/ealarcop/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.05.02 11:33:16 ERROR Timeout waiting for 'build/initialize' response
+2024.05.02 11:33:16 WARN  Retrying connection to the build server Bloop
+2024.05.02 11:33:16 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/ealarcop/Projects/scala/akka_erp/.metals/bsp.trace.json or /Users/ealarcop/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.05.02 11:33:36 ERROR Timeout waiting for 'build/initialize' response
+2024.05.02 11:33:36 WARN  Retrying connection to the build server Bloop
+2024.05.02 11:33:36 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/ealarcop/Projects/scala/akka_erp/.metals/bsp.trace.json or /Users/ealarcop/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.05.02 11:33:56 ERROR Timeout waiting for 'build/initialize' response
+2024.05.02 11:33:56 WARN  Retrying connection to the build server Bloop
+2024.05.02 11:33:56 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/ealarcop/Projects/scala/akka_erp/.metals/bsp.trace.json or /Users/ealarcop/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.05.02 11:34:16 ERROR Timeout waiting for 'build/initialize' response
+2024.05.02 11:34:16 WARN  Retrying connection to the build server Bloop
+2024.05.02 11:34:16 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/ealarcop/Projects/scala/akka_erp/.metals/bsp.trace.json or /Users/ealarcop/Library/Caches/org.scalameta.metals/bsp.trace.json
+2024.05.02 11:34:36 ERROR Timeout waiting for 'build/initialize' response
+2024.05.02 11:34:36 ERROR Failed to connect with build server, no functionality will work.
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at scala.meta.internal.metals.BuildServerConnection$.initialize(BuildServerConnection.scala:690)
+	at scala.meta.internal.metals.BuildServerConnection$.$anonfun$fromSockets$1(BuildServerConnection.scala:575)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:840)
+
+2024.05.02 11:37:53 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+may. 02, 2024 11:38:39 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFORMACIÓN: Unsupported notification method: $/setTrace
+2024.05.02 11:38:39 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.02 11:42:45 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.02 11:47:58 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.02 13:54:26 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.02 18:31:32 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+may. 03, 2024 11:10:11 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFORMACIÓN: Unsupported notification method: $/setTrace
+may. 03, 2024 11:10:11 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFORMACIÓN: Unsupported notification method: $/setTrace
+may. 03, 2024 11:10:11 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFORMACIÓN: Unsupported notification method: $/setTrace
+2024.05.03 12:51:56 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.05 00:06:59 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.05 00:08:43 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.05 00:14:00 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka_erp/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.05 00:20:51 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.05 01:04:15 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.05 01:11:20 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.05 16:23:22 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.06 00:39:56 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log,/Users/ealarcop/Projects/vaadin/vaadin-hilla-react/.metals/metals.log
+2024.05.06 00:41:26 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/scala/akka-quickstart-scala/.metals/metals.log
+2024.05.06 00:41:30 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.06 00:49:22 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.06 00:52:44 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.06 09:05:01 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.06 11:22:50 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.06 11:28:19 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.06 11:33:31 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.06 11:34:08 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+may. 06, 2024 2:14:09 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFORMACIÓN: Unsupported notification method: $/setTrace
+may. 06, 2024 2:14:09 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFORMACIÓN: Unsupported notification method: $/setTrace
+may. 06, 2024 3:03:09 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFORMACIÓN: Unsupported notification method: $/setTrace
+2024.05.06 15:03:09 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.06 15:05:34 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.07 11:19:14 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.07 13:51:09 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.07 14:20:25 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+may. 07, 2024 2:40:13 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFORMACIÓN: Unsupported notification method: $/setTrace
+2024.05.07 14:50:55 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.07 14:51:50 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.07 15:13:11 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.07 15:26:08 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.07 17:29:31 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.07 17:36:16 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+2024.05.07 18:45:07 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log
+may. 07, 2024 10:54:51 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFORMACIÓN: Unsupported notification method: $/setTrace
+may. 07, 2024 10:55:38 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFORMACIÓN: Unsupported notification method: $/setTrace
+2024.05.08 12:17:18 INFO  logging to files /Users/ealarcop/Projects/java/quarkus/quarkus_obresec_api/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring-boot-siaf/.metals/metals.log,/Users/ealarcop/Projects/java/spring/spring_hr_api/.metals/metals.log
+2024.05.08 12:17:18 WARN  Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.05.09 12:25:44 INFO  Shutting down server
+2024.05.09 12:25:44 INFO  shutting down Metals
+2024.05.09 12:25:44 INFO  Exiting server
