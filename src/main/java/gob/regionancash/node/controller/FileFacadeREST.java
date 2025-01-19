@@ -35,7 +35,7 @@ public class FileFacadeREST {
     public Object delete(FDR m) {
         File directory = new File((String)m.folder);
         directory.delete();
-        return true;
+        return "";
     }
 
     @POST
