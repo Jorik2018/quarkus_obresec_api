@@ -19,6 +19,7 @@ import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -32,12 +33,11 @@ public class FileFacadeREST {
     }
 
     @DELETE 
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Object delete(Map m) {
-        File directory = new File((String)m.get("folder"));
+    @Path("{path:.+}")
+    public Object delete(@PathParam("path") String path) {
+        File directory = new File(path);
         directory.delete();
-        return m;
+        return path;
     }
 
     @POST
