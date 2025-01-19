@@ -32,6 +32,8 @@ public class FileFacadeREST {
     }
 
     @DELETE 
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public Object delete(FDR m) {
         File directory = new File((String)m.folder);
         directory.delete();
