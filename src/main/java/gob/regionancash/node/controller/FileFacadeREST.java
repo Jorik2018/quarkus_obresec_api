@@ -25,9 +25,15 @@ import jakarta.ws.rs.core.Response;
 @Path("file")
 public class FileFacadeREST {
 
-    @DELETE
-    public Object delete(Map<String, Object> m) {
-        File directory = new File((String)m.get("folder"));
+    public static class FDR{
+
+        public String folder;
+
+    }
+
+    @DELETE 
+    public Object delete(FDR m) {
+        File directory = new File((String)m.folder);
         directory.delete();
         return true;
     }
