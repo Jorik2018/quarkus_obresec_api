@@ -15,6 +15,7 @@ import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.FormParam;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
@@ -23,6 +24,13 @@ import jakarta.ws.rs.core.Response;
 
 @Path("file")
 public class FileFacadeREST {
+
+    @DELETE
+    public Object get(Map<String, Object> m) {
+        File directory = new File((String)m.get("folder"));
+        directory.delete();
+        return true;
+    }
 
     @POST
     public Object get(Map<String, Object> m) {
