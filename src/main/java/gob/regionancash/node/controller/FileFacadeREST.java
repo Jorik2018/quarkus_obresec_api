@@ -31,7 +31,7 @@ public class FileFacadeREST {
         File[] files = directory.listFiles();
         if (files != null) {
             for (File file : files) {
-                list.add(Map.of("file", file.getAbsolutePath(),"type",file.isFile()?'F':'D'));
+                list.add(Map.of("file", file.getAbsolutePath(),"type",file.isFile()?'F':'D',"length",file.length()));
             }
         }
         return Map.of("data", list);
