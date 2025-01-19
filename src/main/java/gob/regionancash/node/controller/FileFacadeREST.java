@@ -26,13 +26,13 @@ import jakarta.ws.rs.core.Response;
 @Path("file")
 public class FileFacadeREST {
 
-    public static class FDR{
+    public static class FDR {
 
         public String folder;
 
     }
 
-    @DELETE 
+    @DELETE
     @Path("{path:.+}")
     public Object delete(@PathParam("path") String path) {
         File directory = new File(path);
@@ -42,22 +42,23 @@ public class FileFacadeREST {
 
     @POST
     public Object get(Map<String, Object> m) {
-        String f=(String)m.get("folder");
+        String f = (String) m.get("folder");
         ArrayList<Map<String, Object>> list = new ArrayList<>();
-        if(f==null){
+        if (f == null) {
             File[] drives = File.listRoots();
             if (drives != null && drives.length > 0) {
                 for (File drive : drives) {
-                    list.add(Map.of("path", drive.getAbsolutePath(),"type",'D'));
+                    list.add(Map.of("path", drive.getAbsolutePath(), "type", 'D'));
                 }
             }
-        }
-        File directory = new File(f);
-        
-        File[] files = directory.listFiles();
-        if (files != null) {
-            for (File file : files) {
-                list.add(Map.of("path", file.getAbsolutePath(),"type",file.isFile()?'F':'D',"length",file.length()));
+        } else {
+            File directory = new File(f);
+            File[] files = directory.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    list.add(Map.of("path", file.getAbsolutePath(), "type", file.isFile() ? 'F' : 'D', "length",
+                            file.length()));
+                }
             }
         }
         return Map.of("data", list);
@@ -68,7 +69,7 @@ public class FileFacadeREST {
     @PermitAll
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response downloadFilePost(Map<String, Object> m) {
-        return this.downloadFile((String)m.get("folder"));
+        return this.downloadFile((String) m.get("folder"));
     }
 
     @GET
@@ -77,9 +78,9 @@ public class FileFacadeREST {
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response downloadFile(@QueryParam("filename") String filename) {
         try {
-            File file = new  File(filename);
-            if(file.isDirectory()){
-                file=compressTemporaryCompress(file);
+            File file = new File(filename);
+            if (file.isDirectory()) {
+                file = compressTemporaryCompress(file);
             }
             FileInputStream fileInputStream = new FileInputStream(file);
             Response.ResponseBuilder responseBuilder = Response.ok(fileInputStream);
@@ -89,13 +90,13 @@ public class FileFacadeREST {
             return Response.serverError().entity("Error downloading file: " + e.getMessage()).build();
         }
     }
-    
+
     private File compressTemporaryCompress(File directory) throws IOException {
         // Create a temporary zip file
         File zipFile = File.createTempFile(directory.getName(), ".zip");
 
         try (FileOutputStream fos = new FileOutputStream(zipFile);
-             ZipOutputStream zos = new ZipOutputStream(fos)) {
+                ZipOutputStream zos = new ZipOutputStream(fos)) {
             zipDirectory(directory, directory.getName(), zos);
         }
 
@@ -130,7 +131,7 @@ public class FileFacadeREST {
         byte[] fileBytes = body.file.readAllBytes();
         String filePath = body.dst;
         Files.write(Paths.get(filePath), fileBytes);
-        return Map.of("file",body.dst, "path", Paths.get(filePath).toFile().getAbsolutePath());
+        return Map.of("file", body.dst, "path", Paths.get(filePath).toFile().getAbsolutePath());
     }
 
     public static class MultipartBody {
@@ -144,5 +145,5 @@ public class FileFacadeREST {
         public String dst;
 
     }
-    
+
 }
