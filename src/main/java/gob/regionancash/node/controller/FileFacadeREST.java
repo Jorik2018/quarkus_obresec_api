@@ -26,7 +26,7 @@ import jakarta.ws.rs.core.Response;
 public class FileFacadeREST {
 
     @DELETE
-    public Object get(Map<String, Object> m) {
+    public Object delete(Map<String, Object> m) {
         File directory = new File((String)m.get("folder"));
         directory.delete();
         return true;
