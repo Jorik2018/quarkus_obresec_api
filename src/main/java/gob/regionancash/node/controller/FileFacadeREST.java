@@ -42,8 +42,18 @@ public class FileFacadeREST {
 
     @POST
     public Object get(Map<String, Object> m) {
-        File directory = new File((String)m.get("folder"));
+        String f=(String)m.get("folder");
         ArrayList<Map<String, Object>> list = new ArrayList<>();
+        if(f==null){
+            File[] drives = File.listRoots();
+            if (drives != null && drives.length > 0) {
+                for (File drive : drives) {
+                    list.add(Map.of("path", drive.getAbsolutePath(),"type",'D'));
+                }
+            }
+        }
+        File directory = new File(f);
+        
         File[] files = directory.listFiles();
         if (files != null) {
             for (File file : files) {
