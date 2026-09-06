@@ -74,17 +74,21 @@ private Object deleteFile(String path) {
         throw new BadRequestException("Path is required");
     }
 
-    File file = new File(path);
+    Path file = Path.of(path);
 
-    if (!file.exists()) {
+    if (!Files.exists(file)) {
         throw new NotFoundException(
             "File not found: " + path
         );
     }
 
-    if (!file.delete()) {
+    try {
+        Files.delete(file);
+    } catch (IOException e) {
+        e.printStackTrace();
+
         throw new InternalServerErrorException(
-            "Could not delete: " + path
+            "Could not delete: " + path + " - " + e.getMessage()
         );
     }
 
