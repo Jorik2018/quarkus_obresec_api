@@ -23,6 +23,8 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 @Path("file")
 public class FileFacadeREST {
@@ -33,32 +35,33 @@ public class FileFacadeREST {
 
     }
 
+
+
 @DELETE
-@Path("{path:.+}")
-public Object delete(@PathParam("path") String path) {
+@Path("{path}")
+public Object delete(@PathParam("path") String encodedPath) {
+
+    String padding = "=".repeat((4 - encodedPath.length() % 4) % 4);
+
+    String path = new String(
+        Base64.getUrlDecoder().decode(encodedPath + padding),
+        StandardCharsets.UTF_8
+    );
+
     File file = new File(path);
 
-    System.out.println("DELETE path: " + path);
-    System.out.println("Absolute: " + file.getAbsolutePath());
-    System.out.println("Exists: " + file.exists());
-    System.out.println("Is file: " + file.isFile());
-
     if (!file.exists()) {
-        throw new NotFoundException(
-            "File not found: " + file.getAbsolutePath()
-        );
+        throw new NotFoundException("File not found: " + path);
     }
 
-    boolean deleted = file.delete();
-
-    if (!deleted) {
+    if (!file.delete()) {
         throw new InternalServerErrorException(
-            "Could not delete: " + file.getAbsolutePath()
+            "Could not delete: " + path
         );
     }
 
     return Map.of(
-        "path", file.getAbsolutePath(),
+        "path", path,
         "deleted", true
     );
 }
