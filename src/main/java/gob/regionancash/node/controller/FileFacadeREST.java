@@ -37,11 +37,15 @@ public class FileFacadeREST {
 
 
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
 @DELETE
 @Path("{path}")
 public Object delete(@PathParam("path") String encodedPath) {
-
-    String padding = "=".repeat((4 - encodedPath.length() % 4) % 4);
+    String padding = "=".repeat(
+        (4 - encodedPath.length() % 4) % 4
+    );
 
     String path = new String(
         Base64.getUrlDecoder().decode(encodedPath + padding),
@@ -65,7 +69,6 @@ public Object delete(@PathParam("path") String encodedPath) {
         "deleted", true
     );
 }
-
     @POST
 public Object get(Map<String, Object> m) {
     String f = (String) m.get("current");
