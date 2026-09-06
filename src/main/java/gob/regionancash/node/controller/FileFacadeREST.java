@@ -41,28 +41,69 @@ public class FileFacadeREST {
     }
 
     @POST
-    public Object get(Map<String, Object> m) {
-        String f = (String) m.get("folder");
-        ArrayList<Map<String, Object>> list = new ArrayList<>();
-        if (f == null) {
-            File[] drives = File.listRoots();
-            if (drives != null && drives.length > 0) {
-                for (File drive : drives) {
-                    list.add(Map.of("path", drive.getAbsolutePath(), "type", 'D'));
-                }
-            }
-        } else {
-            File directory = new File(f);
-            File[] files = directory.listFiles();
-            if (files != null) {
-                for (File file : files) {
-                    list.add(Map.of("path", file.getAbsolutePath(), "type", file.isFile() ? 'F' : 'D', "length",
-                            file.length()));
-                }
+public Object get(Map<String, Object> m) {
+    String f = (String) m.get("current");
+
+    ArrayList<Map<String, Object>> list = new ArrayList<>();
+    ArrayList<Map<String, Object>> parents = new ArrayList<>();
+
+    if (f == null) {
+        File[] drives = File.listRoots();
+
+        if (drives != null) {
+            for (File drive : drives) {
+                list.add(Map.of(
+                    "path", drive.getAbsolutePath(),
+                    "type", 'D'
+                ));
             }
         }
-        return Map.of("data", list);
+
+        return Map.of(
+            "parents", parents,
+            "data", list
+        );
     }
+
+    File directory = new File(f);
+
+    File[] files = directory.listFiles();
+
+    if (files != null) {
+        for (File file : files) {
+            list.add(Map.of(
+                "path", file.getAbsolutePath(),
+                "name", file.getName(),
+                "type", file.isFile() ? 'F' : 'D',
+                "length", file.length()
+            ));
+        }
+    }
+
+    File current = directory;
+
+    while (current != null) {
+        parents.add(
+            0,
+            Map.of(
+                "name",
+                current.getName().isEmpty()
+                    ? current.getAbsolutePath()
+                    : current.getName(),
+
+                "path",
+                current.getAbsolutePath()
+            )
+        );
+
+        current = current.getParentFile();
+    }
+
+    return Map.of(
+        "parents", parents,
+        "data", list
+    );
+}
 
     @POST
     @Path("download")
