@@ -80,24 +80,31 @@ public Object get(Map<String, Object> m) {
         }
     }
 
-    File current = directory;
+File current = directory;
 
-    while (current != null) {
-        parents.add(
-            0,
-            Map.of(
-                "name",
-                current.getName().isEmpty()
-                    ? current.getAbsolutePath()
-                    : current.getName(),
+while (current != null) {
+    String path = current.getAbsolutePath();
 
-                "path",
-                current.getAbsolutePath()
-            )
-        );
-
-        current = current.getParentFile();
+    // D:/ o D:\ -> D:
+    if (current.getParentFile() == null
+            && path.matches("^[A-Za-z]:[/\\\\]$")) {
+        path = path.substring(0, 2);
     }
+
+    parents.add(
+        0,
+        Map.of(
+            "name",
+            current.getName().isEmpty()
+                ? path
+                : current.getName(),
+            "path",
+            path
+        )
+    );
+
+    current = current.getParentFile();
+}
 
     return Map.of(
         "parents", parents,
