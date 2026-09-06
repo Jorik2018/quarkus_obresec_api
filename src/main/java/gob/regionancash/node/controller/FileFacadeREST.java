@@ -10,6 +10,8 @@ import java.util.zip.ZipOutputStream;
 
 import org.jboss.resteasy.reactive.PartType;
 import jakarta.ws.rs.NotFoundException;
+import jakarta.ws.rs.BadRequestException;
+import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.InternalServerErrorException;
 import jakarta.annotation.security.PermitAll;
 import jakarta.ws.rs.Consumes;
