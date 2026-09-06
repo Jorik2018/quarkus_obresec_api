@@ -32,13 +32,35 @@ public class FileFacadeREST {
 
     }
 
-    @DELETE
-    @Path("{path:.+}")
-    public Object delete(@PathParam("path") String path) {
-        File directory = new File(path);
-        directory.delete();
-        return path;
+@DELETE
+@Path("{path:.+}")
+public Object delete(@PathParam("path") String path) {
+    File file = new File(path);
+
+    System.out.println("DELETE path: " + path);
+    System.out.println("Absolute: " + file.getAbsolutePath());
+    System.out.println("Exists: " + file.exists());
+    System.out.println("Is file: " + file.isFile());
+
+    if (!file.exists()) {
+        throw new NotFoundException(
+            "File not found: " + file.getAbsolutePath()
+        );
     }
+
+    boolean deleted = file.delete();
+
+    if (!deleted) {
+        throw new InternalServerErrorException(
+            "Could not delete: " + file.getAbsolutePath()
+        );
+    }
+
+    return Map.of(
+        "path", file.getAbsolutePath(),
+        "deleted", true
+    );
+}
 
     @POST
 public Object get(Map<String, Object> m) {
