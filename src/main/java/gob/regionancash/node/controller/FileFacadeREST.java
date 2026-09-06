@@ -38,8 +38,36 @@ public class FileFacadeREST {
 
 
 @DELETE
-public Object delete(Map<String, Object> m) {
-    String path = (String) m.get("path");
+public Object delete(Map<String, Object> body) {
+    return deleteFile(null, body);
+}
+
+@DELETE
+@Path("{path:.+}")
+public Object delete(
+        @PathParam("path") String path,
+        Map<String, Object> body) {
+
+    return deleteFile(path, body);
+}
+
+private Object deleteFile(
+        String pathParam,
+        Map<String, Object> body) {
+
+    String path = null;
+
+    // 1. Preferir body
+    if (body != null && body.get("path") != null) {
+        path = body.get("path").toString();
+    }
+
+    // 2. Compatibilidad con el endpoint anterior
+    if ((path == null || path.isBlank())
+            && pathParam != null
+            && !pathParam.isBlank()) {
+        path = pathParam;
+    }
 
     if (path == null || path.isBlank()) {
         throw new BadRequestException("Path is required");
@@ -48,7 +76,9 @@ public Object delete(Map<String, Object> m) {
     File file = new File(path);
 
     if (!file.exists()) {
-        throw new NotFoundException("File not found: " + path);
+        throw new NotFoundException(
+            "File not found: " + path
+        );
     }
 
     if (!file.delete()) {
