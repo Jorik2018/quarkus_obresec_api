@@ -39,17 +39,32 @@ public class FileFacadeREST {
 
 
 @DELETE
-public Object delete(Map<String, Object> body) {
-    return deleteFile(null, body);
+@Path("{encodedPath}")
+public Object deleteByPath(
+        @PathParam("encodedPath") String encodedPath) {
+
+    String padding = "=".repeat(
+        (4 - encodedPath.length() % 4) % 4
+    );
+
+    String path = new String(
+        Base64.getUrlDecoder().decode(encodedPath + padding),
+        StandardCharsets.UTF_8
+    );
+
+    return deleteFile(path);
 }
 
-@DELETE
-@Path("{path:.+}")
-public Object delete(
-        @PathParam("path") String path,
-        Map<String, Object> body) {
 
-    return deleteFile(path, body);
+@DELETE
+@Consumes(MediaType.APPLICATION_JSON)
+public Object deleteByBody(Map<String, Object> body) {
+
+    String path = body != null
+            ? (String) body.get("path")
+            : null;
+
+    return deleteFile(path);
 }
 
 private Object deleteFile(
