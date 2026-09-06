@@ -67,23 +67,8 @@ public Object deleteByBody(Map<String, Object> body) {
     return deleteFile(path);
 }
 
-private Object deleteFile(
-        String pathParam,
-        Map<String, Object> body) {
 
-    String path = null;
-
-    // 1. Preferir body
-    if (body != null && body.get("path") != null) {
-        path = body.get("path").toString();
-    }
-
-    // 2. Compatibilidad con el endpoint anterior
-    if ((path == null || path.isBlank())
-            && pathParam != null
-            && !pathParam.isBlank()) {
-        path = pathParam;
-    }
+private Object deleteFile(String path) {
 
     if (path == null || path.isBlank()) {
         throw new BadRequestException("Path is required");
