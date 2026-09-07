@@ -74,7 +74,7 @@ private Object deleteFile(String path) {
         throw new BadRequestException("Path is required");
     }
 
-    Path file = Path.of(path);
+    java.nio.file.Path file = java.nio.file.Paths.get(path);
 
     if (!Files.exists(file)) {
         throw new NotFoundException(
