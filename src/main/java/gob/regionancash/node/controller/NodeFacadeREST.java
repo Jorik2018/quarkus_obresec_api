@@ -27,20 +27,15 @@ public class NodeFacadeREST {
 			@QueryParam("details") Boolean details) {
 
 		StringBuilder query = new StringBuilder("1 = 1");
-
 		Map<String, Object> params = new HashMap<>();
 
-		/*
-		 * Filtrar por título de NodeRevision.
-		 */
 		if (title != null && !title.isBlank()) {
-
 			query.append("""
-					     AND vid IN (
-					         SELECT nr.id
-					         FROM NodeRevision nr
-					         WHERE UPPER(nr.title) LIKE :title
-					     )
+					    AND vid IN (
+					        SELECT nr.id
+					        FROM NodeRevision nr
+					        WHERE UPPER(nr.title) LIKE :title
+					    )
 					""");
 
 			params.put(
@@ -48,9 +43,6 @@ public class NodeFacadeREST {
 					"%" + title.toUpperCase() + "%");
 		}
 
-		/*
-		 * Filtrar por URL alias.
-		 */
 		if (dst != null && !dst.isBlank()) {
 
 			List<UrlAlias> aliases = UrlAlias.list(
@@ -66,18 +58,24 @@ public class NodeFacadeREST {
 					.toList();
 
 			if (nids.isEmpty()) {
-				return List.of();
+				return Map.of(
+						"data", List.of(),
+						"size", 0);
 			}
 
 			query.append(" AND id IN :nids");
-
-			params.put(
-					"nids",
-					nids);
+			params.put("nids", nids);
 		}
 
 		/*
-		 * Consulta de Node.
+		 * Total SIN paginación
+		 */
+		long total = Node.count(
+				query.toString(),
+				params);
+
+		/*
+		 * Datos paginados
 		 */
 		List<Node> nodes = Node
 				.find(
@@ -87,44 +85,48 @@ public class NodeFacadeREST {
 						from,
 						from + size - 1)
 				.list();
-/*
- * Obtener aliases de los nodos.
- */
-if (!nodes.isEmpty()) {
 
-    List<String> srcList = nodes.stream()
-            .map(node -> "node/" + node.getId())
-            .toList();
-
-    List<UrlAlias> aliases = UrlAlias.list(
-            "src in ?1",
-            srcList);
-
-    Map<String, String> aliasMap = new HashMap<>();
-
-    for (UrlAlias alias : aliases) {
-        aliasMap.put(
-                alias.getSrc(),
-                alias.getDst());
-    }
-
-    for (Node node : nodes) {
-
-        String src = "node/" + node.getId();
-
-        String url = aliasMap.get(src);
-
-        if (url == null || url.isBlank()) {
-            url = src;
-        }
-
-        node.setUrl("/" + url);
-    }
-}
 		/*
-		 * Cargar revisión si details=true.
+		 * Obtener aliases
 		 */
-		if (details != null && details && !nodes.isEmpty()) {
+		if (!nodes.isEmpty()) {
+
+			List<String> srcList = nodes.stream()
+					.map(node -> "node/" + node.getId())
+					.toList();
+
+			List<UrlAlias> aliases = UrlAlias.list(
+					"src in ?1",
+					srcList);
+
+			Map<String, String> aliasMap = new HashMap<>();
+
+			for (UrlAlias alias : aliases) {
+				aliasMap.put(
+						alias.getSrc(),
+						alias.getDst());
+			}
+
+			for (Node node : nodes) {
+
+				String src = "node/" + node.getId();
+
+				String url = aliasMap.get(src);
+
+				if (url == null || url.isBlank()) {
+					url = src;
+				}
+
+				node.setUrl(
+						"/" + url);
+			}
+		}
+
+		/*
+		 * Cargar revisión
+		 */
+		if (Boolean.TRUE.equals(details)
+				&& !nodes.isEmpty()) {
 
 			List<Integer> vids = nodes.stream()
 					.map(Node::getVid)
@@ -153,7 +155,12 @@ if (!nodes.isEmpty()) {
 			}
 		}
 
-		return nodes;
+		Map<String, Object> result = new HashMap<>();
+
+		result.put("data", nodes);
+		result.put("size", total);
+
+		return result;
 	}
 
 	@GET
