@@ -156,23 +156,8 @@ public class NodeFacadeREST {
 		}
 
 		Map<String, Object> result = new HashMap<>();
-		List<NodeDTO> data = nodes.stream()
-				.map(node -> {
-
-					NodeDTO dto = new NodeDTO();
-
-					dto.setId(node.getId());
-					dto.setVid(node.getVid());
-
-					dto.setCreated(node.getCreated() + 1000);
-					dto.setChanged(node.getChanged() + 1000);
-
-					dto.setUrl(node.getUrl());
-					dto.setRevision(node.getRevision());
-
-					return dto;
-				})
-				.toList();
+		List<NodeDTO> data = nodes.stream().map(NodeDTO::new).toList();
+		
 		result.put("data", data);
 		result.put("size", total);
 
