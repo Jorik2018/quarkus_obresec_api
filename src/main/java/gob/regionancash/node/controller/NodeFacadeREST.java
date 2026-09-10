@@ -17,6 +17,104 @@ import gob.regionancash.node.dto.NodeDTO;
 @Path("node")
 public class NodeFacadeREST {
 
+public Response load(
+            @PathParam("id") Integer id,
+            @QueryParam("ref") String ref) {
+
+        /*
+         * Buscar node
+         */
+        Node node = Node.findById(id);
+
+        if (node == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        /*
+         * Cargar revisión actual
+         */
+        if (node.getVid() != null) {
+            NodeRevision revision = NodeRevision.findById(node.getVid());
+            node.setRevision(revision);
+        }
+
+        /*
+         * Datos adicionales
+         */
+        Map<String, Object> ext = new HashMap<>();
+
+        if (ref != null && !ref.isBlank()) {
+            ext.put("ref", ref);
+        }
+
+        /*
+         * Alias
+         */
+        List<UrlAlias> aliases = UrlAlias.list(
+                "src = ?1",
+                "node/" + node.getId());
+
+        ext.put("urlAliasList", aliases);
+
+        /*
+         * URL principal del nodo
+         */
+        String url = aliases.stream()
+                .map(UrlAlias::getDst)
+                .filter(dst -> dst != null && !dst.isBlank())
+                .findFirst()
+                .orElse("node/" + node.getId());
+
+        node.setUrl("/" + url);
+
+        /*
+         * Uploads
+         */
+        List<Upload> uploads = Upload.list(
+                "uploadPK.vid = ?1 AND list > 0 ORDER BY weight",
+                node.getVid());
+
+        List<Upload> galleryList = new ArrayList<>();
+        List<Upload> uploadList = new ArrayList<>();
+
+        for (Upload upload : uploads) {
+            if (upload.getList() > 1) {
+                galleryList.add(upload);
+            } else {
+                uploadList.add(upload);
+            }
+        }
+
+        /*
+         * El código antiguo recorría desde atrás y luego hacía reverse().
+         * Separándolo así conservamos directamente el ORDER BY weight.
+         */
+        ext.put("galleryList", galleryList);
+        ext.put("uploadList", uploadList);
+
+        /*
+         * Comentarios
+         */
+        /*if (node.getComment() > 0) {
+
+            List<Comment> comments = Comment.list(
+                    "nid = ?1 ORDER BY timestamp",
+                    node.getId());
+
+            ext.put("comments", comments);
+
+            ext.put(
+                    "links",
+                    new Object[][] {
+                            { "Comentar", "/node/comment" }
+                    });
+        }*/
+
+        node.setExt(ext);
+
+        return Response.ok(new NodeDTO(node)).build();
+    }
+
 	@GET
 	@Path("{from}/{to}")
 	public Object page(
