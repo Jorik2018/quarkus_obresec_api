@@ -11,8 +11,8 @@ public class NodeDTO {
     private Integer id;
     private Integer vid;
 
-    private int created;
-    private int changed;
+    private long created;
+    private long changed;
 
     private String url;
 
