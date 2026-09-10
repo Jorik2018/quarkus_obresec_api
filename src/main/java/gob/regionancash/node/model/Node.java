@@ -12,7 +12,7 @@ import jakarta.persistence.Transient;
 import lombok.*;
 
 @Data
-@ToString
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

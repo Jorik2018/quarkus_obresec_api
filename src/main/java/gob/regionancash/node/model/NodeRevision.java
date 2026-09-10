@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 import lombok.*;
 
 @Data
-@ToString
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
