@@ -22,6 +22,7 @@ import lombok.*;
 @Data
 @ToString
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @Entity
 @Table(name = "crime")

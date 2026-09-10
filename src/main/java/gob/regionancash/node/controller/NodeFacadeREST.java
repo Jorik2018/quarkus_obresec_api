@@ -7,6 +7,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.core.Response;
 import io.quarkus.panache.common.Parameters;
 import gob.regionancash.node.model.MenuRouter;
 import gob.regionancash.node.model.Node;
