@@ -91,7 +91,7 @@ public class NodeFacadeREST {
         /*
          * Cargar revisión si details=true.
          */
-        if (details && !nodes.isEmpty()) {
+        if (details!=null&&details && !nodes.isEmpty()) {
 
             List<Integer> vids = nodes.stream()
                     .map(Node::getVid)
