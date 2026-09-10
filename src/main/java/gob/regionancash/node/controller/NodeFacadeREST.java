@@ -19,6 +19,14 @@ import gob.regionancash.node.dto.NodeDTO;
 @Path("node")
 public class NodeFacadeREST {
 
+
+	@POST
+	public Object post( Node node){
+
+
+		return node;
+	}
+
 	@GET
 	@Path("{id}")
 	public Response load(
