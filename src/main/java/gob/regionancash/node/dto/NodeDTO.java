@@ -55,8 +55,8 @@ public class NodeDTO {
 
         // Drupal guarda timestamps Unix en segundos.
         // El front los recibe en milisegundos.
-        this.created = node.getCreated() * 1000;
-        this.changed = node.getChanged() * 1000;
+        this.created = node.getCreated() * 1000L;
+        this.changed = node.getChanged() * 1000L;
 
         this.status = node.getStatus();
         this.comment = node.getComment();
