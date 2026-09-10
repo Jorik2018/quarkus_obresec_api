@@ -9,6 +9,7 @@ import io.quarkus.panache.common.Parameters;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.PathParam;
 
 @Path("node")
 public class NodeFacadeREST {
