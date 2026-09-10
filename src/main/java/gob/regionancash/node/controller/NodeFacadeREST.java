@@ -14,6 +14,7 @@ import gob.regionancash.node.model.Node;
 import gob.regionancash.node.model.NodeRevision;
 import gob.regionancash.node.model.UrlAlias;
 import gob.regionancash.node.dto.NodeDTO;
+//import gob.regionancash.node.model.Upload;
 
 @Path("node")
 public class NodeFacadeREST {
@@ -71,7 +72,7 @@ public Response load(
         /*
          * Uploads
          */
-        List<Upload> uploads = Upload.list(
+        /*List<Upload> uploads = Upload.list(
                 "uploadPK.vid = ?1 AND list > 0 ORDER BY weight",
                 node.getVid());
 
@@ -84,7 +85,7 @@ public Response load(
             } else {
                 uploadList.add(upload);
             }
-        }
+        }*/
 
         /*
          * El código antiguo recorría desde atrás y luego hacía reverse().
