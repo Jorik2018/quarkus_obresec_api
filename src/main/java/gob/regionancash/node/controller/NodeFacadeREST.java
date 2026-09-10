@@ -91,6 +91,7 @@ public class NodeFacadeREST {
         /*
          * Cargar revisión si details=true.
          */
+        try{
         if (details!=null&&details && !nodes.isEmpty()) {
 
             List<Integer> vids = nodes.stream()
@@ -121,6 +122,10 @@ public class NodeFacadeREST {
         }
 
         return nodes;
+}catch(Exception e){
+        e.printStackTrace();
+        return ""+e;
+}
     }
 
     @GET
