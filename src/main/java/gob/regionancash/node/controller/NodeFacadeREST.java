@@ -3,16 +3,16 @@ package gob.regionancash.node.controller;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
-import gob.regionancash.node.model.MenuRouter;
-import gob.regionancash.node.model.Node;
-import gob.regionancash.node.model.NodeRevision;
-import gob.regionancash.node.model.UrlAlias;
-import io.quarkus.panache.common.Parameters;
-
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.PathParam;
+import io.quarkus.panache.common.Parameters;
+import gob.regionancash.node.model.MenuRouter;
+import gob.regionancash.node.model.Node;
+import gob.regionancash.node.model.NodeRevision;
+import gob.regionancash.node.model.UrlAlias;
+import gob.regionancash.node.dto.NodeDTO;
 
 @Path("node")
 public class NodeFacadeREST {
@@ -156,8 +156,24 @@ public class NodeFacadeREST {
 		}
 
 		Map<String, Object> result = new HashMap<>();
+		List<NodeDTO> data = nodes.stream()
+				.map(node -> {
 
-		result.put("data", nodes);
+					NodeDTO dto = new NodeDTO();
+
+					dto.setId(node.getId());
+					dto.setVid(node.getVid());
+
+					dto.setCreated(node.getCreated() + 1000);
+					dto.setChanged(node.getChanged() + 1000);
+
+					dto.setUrl(node.getUrl());
+					dto.setRevision(node.getRevision());
+
+					return dto;
+				})
+				.toList();
+		result.put("data", data);
 		result.put("size", total);
 
 		return result;
