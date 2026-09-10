@@ -106,4 +106,7 @@ public class Node extends PanacheEntityBase {
 
     @Transient
     private Object ext;
+
+    @Transient
+    private String url;
 }
