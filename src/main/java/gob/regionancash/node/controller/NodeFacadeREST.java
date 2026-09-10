@@ -21,7 +21,7 @@ public class NodeFacadeREST {
     @Path("{from}/{to}")
     public Object page(
             @PathParam("from") int from,
-            @PathParam("to") int to,
+            @PathParam("to") int size,
             @QueryParam("title") String title,
             @QueryParam("dst") String dst,
             @QueryParam("details") Boolean details) {
