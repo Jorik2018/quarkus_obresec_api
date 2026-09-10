@@ -11,6 +11,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import lombok.*;
 import org.isobit.util.OptionMap;
+import org.isobit.app.model.User;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
