@@ -91,8 +91,8 @@ public Response load(
          * El código antiguo recorría desde atrás y luego hacía reverse().
          * Separándolo así conservamos directamente el ORDER BY weight.
          */
-        ext.put("galleryList", galleryList);
-        ext.put("uploadList", uploadList);
+        //ext.put("galleryList", galleryList);
+        //ext.put("uploadList", uploadList);
 
         /*
          * Comentarios
