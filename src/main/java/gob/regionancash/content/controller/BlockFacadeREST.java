@@ -18,6 +18,7 @@ import jakarta.transaction.Transactional;
 import io.quarkus.panache.common.Parameters;
 import gob.regionancash.content.model.MenuRouter;
 import gob.regionancash.content.model.Node;
+import gob.regionancash.content.model.Block;
 import gob.regionancash.content.model.NodeRevision;
 import gob.regionancash.content.model.UrlAlias;
 import gob.regionancash.content.dto.NodeDTO;
@@ -170,6 +171,8 @@ public class BlockFacadeREST {
 			@PathParam("to") int size,
 			@QueryParam("theme") String theme,
 			@QueryParam("sortField") String sortField) {
+
+		sortField="b.region";
 
 		Map<String, Object> result = new HashMap<>();
 
