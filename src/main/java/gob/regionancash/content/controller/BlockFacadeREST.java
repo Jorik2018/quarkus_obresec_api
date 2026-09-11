@@ -31,30 +31,8 @@ public class BlockFacadeREST {
 
 	@POST
 	@Transactional
-	public Response post(Node entity) {
-
-		NodeRevision incomingRevision = entity.getRevision();
-
-		if (incomingRevision == null || incomingRevision.getId() == null) {
-			return Response
-					.status(Response.Status.BAD_REQUEST)
-					.entity("Revision inválida")
-					.build();
-		}
-
-		NodeRevision revision = NodeRevision.findById(incomingRevision.getId());
-
-		if (revision == null) {
-			return Response
-					.status(Response.Status.NOT_FOUND)
-					.entity("Revision no encontrada")
-					.build();
-		}
-
-		revision.setBody(
-				sanitize(incomingRevision.getBody())[0]);
-
-		return Response.ok(revision).build();
+	public Response post(Block entity) {
+		return Response.ok(true).build();
 	}
 
 	@Inject
