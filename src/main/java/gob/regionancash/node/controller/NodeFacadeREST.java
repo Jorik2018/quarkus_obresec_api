@@ -26,11 +26,31 @@ public class NodeFacadeREST {
 	private final Client client = ClientBuilder.newClient();
 
 	@POST
-	public Object post(Node entity) {
-		NodeRevision revision = entity.getRevision();
-		String body = revision.getBody();
-		String[] html = sanitize(body);
-		return html;
+	@Transactional
+	public Response post(Node entity) {
+
+		NodeRevision incomingRevision = entity.getRevision();
+
+		if (incomingRevision == null || incomingRevision.getId() == null) {
+			return Response
+					.status(Response.Status.BAD_REQUEST)
+					.entity("Revision inválida")
+					.build();
+		}
+
+		NodeRevision revision = NodeRevision.findById(incomingRevision.getId());
+
+		if (revision == null) {
+			return Response
+					.status(Response.Status.NOT_FOUND)
+					.entity("Revision no encontrada")
+					.build();
+		}
+
+		revision.setBody(
+				sanitize(incomingRevision.getBody())[0]);
+
+		return Response.ok(revision).build();
 	}
 
 	@GET
