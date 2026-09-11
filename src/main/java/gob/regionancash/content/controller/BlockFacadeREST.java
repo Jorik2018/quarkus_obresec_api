@@ -23,7 +23,6 @@ import gob.regionancash.content.model.Block;
 import gob.regionancash.content.model.NodeRevision;
 import gob.regionancash.content.model.UrlAlias;
 import gob.regionancash.content.dto.NodeDTO;
-//import gob.regionancash.content.model.Upload;
 
 @Path("block")
 public class BlockFacadeREST {
