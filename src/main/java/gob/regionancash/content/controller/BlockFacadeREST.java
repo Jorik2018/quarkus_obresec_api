@@ -174,6 +174,8 @@ public class BlockFacadeREST {
 
 		sortField="region";
 
+		theme="garland";
+
 		Map<String, Object> result = new HashMap<>();
 
 		String jpql = "SELECT b FROM Block b WHERE b.theme = :theme";
