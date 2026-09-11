@@ -1,7 +1,7 @@
-package gob.regionancash.node.dto;
+package gob.regionancash.content.dto;
 
-import gob.regionancash.node.model.Node;
-import gob.regionancash.node.model.NodeRevision;
+import gob.regionancash.content.model.Node;
+import gob.regionancash.content.model.NodeRevision;
 import org.isobit.app.model.User;
 import lombok.Data;
 

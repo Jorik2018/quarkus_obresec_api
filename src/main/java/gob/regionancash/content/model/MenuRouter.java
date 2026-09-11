@@ -1,4 +1,4 @@
-package gob.regionancash.node.model;
+package gob.regionancash.content.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Basic;
@@ -15,20 +15,18 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "dru_node_revisions")
-public class NodeRevision extends PanacheEntityBase {
-
+@Table(name = "dru_menu_router")
+public class MenuRouter  extends PanacheEntityBase {
+    
+    private static final long serialVersionUID = 1L;
     @Id
     @EqualsAndHashCode.Include()
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "vid")
-    private Integer id;
+    private String path;
 
-    private Integer nid;
+    private String file;
 
     private String title;
-
-    private String body;
 
 }

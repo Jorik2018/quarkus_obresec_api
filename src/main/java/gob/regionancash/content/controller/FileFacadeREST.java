@@ -1,4 +1,4 @@
-package gob.regionancash.node.controller;
+package gob.regionancash.content.controller;
 
 import java.io.*;
 import java.nio.file.Files;

@@ -1,4 +1,4 @@
-package gob.regionancash.node.model;
+package gob.regionancash.content.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Basic;
