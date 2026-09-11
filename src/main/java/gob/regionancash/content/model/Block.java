@@ -11,6 +11,11 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
 @Entity
+@Data
+@EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
 @Table(name = "dru_blocks")
 public class Block extends PanacheEntityBase {
     private static final long serialVersionUID = 1L;
