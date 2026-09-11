@@ -172,7 +172,7 @@ public class BlockFacadeREST {
 			@QueryParam("theme") String theme,
 			@QueryParam("sortField") String sortField) {
 
-		sortField="b.region";
+		sortField="region";
 
 		Map<String, Object> result = new HashMap<>();
 
