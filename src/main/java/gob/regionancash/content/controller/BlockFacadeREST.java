@@ -125,45 +125,4 @@ public class BlockFacadeREST {
 		return result;
 	}
 
-	@GET
-	public Object get(@QueryParam("dst") String dst) {
-		UrlAlias urlAlias = UrlAlias
-				.find("SELECT o FROM UrlAlias o WHERE o.dst=:dst", Parameters.with("dst", dst))
-				.firstResult();
-		if (urlAlias == null) {
-			MenuRouter menuRouter = MenuRouter.findById(dst);
-			menuRouter.getFile();
-			Node node = new Node();
-			NodeRevision nodeRevision = new NodeRevision();
-			nodeRevision.setBody(dst);
-			nodeRevision.setTitle(menuRouter.getTitle());
-			nodeRevision.setBody(menuRouter.getFile());
-			node.setRevision(nodeRevision);
-			return node;
-		}
-		String src = urlAlias.getSrc();
-		String nid = src.split("/")[1];
-		Node node = Node.findById(Integer.parseInt(nid));
-		node.setRevision(NodeRevision.findById(node.getVid()));
-		return node;
-	}
-
-	private String[] sanitize(String body) {
-		String url = "http://localhost/html/api";
-
-		try {
-			return client
-					.target(url)
-					.request()
-					.post(
-							Entity.text(body),
-							String[].class);
-
-		} catch (Exception e) {
-			throw new RuntimeException(
-					"No se pudo enviar al servicio '" + url + "'",
-					e);
-		}
-	}
-
 }
