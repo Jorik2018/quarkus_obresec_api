@@ -27,8 +27,8 @@ public class NodeFacadeREST {
 
 	@POST
 	public Object post(Node entity) {
-		NodeRevision nodeRevision = entity.getNodeRevision();
-		String body = nodeRevision.getBody();
+		NodeRevision revision = entity.getRevision();
+		String body = revision.getBody();
 		String[] html = sanitize(body);
 		return html;
 	}

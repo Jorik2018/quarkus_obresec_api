@@ -46,9 +46,6 @@ public class Node extends PanacheEntityBase {
         return ESTADO_MAP;
     }
 
-    @Transient
-    private NodeRevision nodeRevision;
-
     @Basic(optional = false)
     @Column(name = "type")
     private String type;
