@@ -12,6 +12,7 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.Entity;
+import jakarta.transaction.Transactional;
 import io.quarkus.panache.common.Parameters;
 import gob.regionancash.node.model.MenuRouter;
 import gob.regionancash.node.model.Node;
