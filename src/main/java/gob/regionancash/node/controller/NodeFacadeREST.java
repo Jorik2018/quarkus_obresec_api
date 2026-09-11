@@ -9,6 +9,9 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
 import io.quarkus.panache.common.Parameters;
 import gob.regionancash.node.model.MenuRouter;
 import gob.regionancash.node.model.Node;
@@ -20,12 +23,14 @@ import gob.regionancash.node.dto.NodeDTO;
 @Path("node")
 public class NodeFacadeREST {
 
+	private final Client client = ClientBuilder.newClient();
 
 	@POST
-	public Object post( Node node){
-
-
-		return node;
+	public Object post(Node entity) {
+		NodeRevision nodeRevision = entity.getNodeRevision();
+		String body = nodeRevision.getBody();
+		String[] html = sanitize(body);
+		return html;
 	}
 
 	@GET
@@ -300,6 +305,24 @@ public class NodeFacadeREST {
 		Node node = Node.findById(Integer.parseInt(nid));
 		node.setRevision(NodeRevision.findById(node.getVid()));
 		return node;
+	}
+
+	private String[] sanitize(String body) {
+		String url = "http://localhost/html/api";
+
+		try {
+			return client
+					.target(url)
+					.request()
+					.post(
+							Entity.text(body),
+							String[].class);
+
+		} catch (Exception e) {
+			throw new RuntimeException(
+					"No se pudo enviar al servicio '" + url + "'",
+					e);
+		}
 	}
 
 }
