@@ -13,7 +13,7 @@ import jakarta.persistence.Query;
 import org.isobit.app.X;
 import org.isobit.app.model.User;
 import org.isobit.app.service.SessionFacade;
-import org.isobit.app.service.UserService;
+import org.isobit.app.service.UserServiceX;
 import org.isobit.directory.model.Country;
 import org.isobit.directory.model.People;
 import org.isobit.util.AbstractFacade;
@@ -31,7 +31,7 @@ public class CrimeFacade extends AbstractFacade<Crime> implements CrimeFacadeLoc
     private SessionFacade sessionFacade;
 
     @Inject
-    private UserService userService;
+    private UserServiceX userService;
 
     protected EntityManager getEntityManager() {
         return Crime.getEntityManager();
@@ -39,6 +39,11 @@ public class CrimeFacade extends AbstractFacade<Crime> implements CrimeFacadeLoc
 
     @Override
     public List load(int first, int pageSize, String sortField, Map<String, Object> filters) {
+        User u = (User) userService.getCurrentUser();
+        boolean OBRESEC_ADMIN_CRIME = userService.access(ObresecFacade.Perm.OBRESEC_ADMIN_CRIME);
+
+        
+
         Object last = XUtil.isEmpty(filters.get("last"), null);
         Object from = XUtil.isEmpty(filters.get("from"), null);
         Object columns = XUtil.isEmpty(filters.get("columns"), null);
@@ -73,10 +78,7 @@ public class CrimeFacade extends AbstractFacade<Crime> implements CrimeFacadeLoc
         List<Query> ql = new ArrayList();
         String sql;
         EntityManager em = this.getEntityManager();
-        User u = (User) userService.getCurrentUser();
-        boolean OBRESEC_ADMIN_CRIME = userService.access(ObresecFacade.Perm.OBRESEC_ADMIN_CRIME);
-
-        
+ 
         
         Date[] period = XDate.getPeriod((String) filters.get("date"));
         if (period != null) {

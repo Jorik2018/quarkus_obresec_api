@@ -34,8 +34,9 @@ dependencies {
 
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
-    implementation files('/Users/ealarcop/Projects/java/java_isobit/build/libs/isobit.jar')
+    implementation files('D:/java/libs/isobit.jar')
 }
+
 
 group 'gob.regionancash'
 version '1.0.0-SNAPSHOT'
