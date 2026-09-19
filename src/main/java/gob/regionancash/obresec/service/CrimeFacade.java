@@ -42,7 +42,6 @@ public class CrimeFacade extends AbstractFacade<Crime> implements CrimeFacadeLoc
         User u = (User) userService.getCurrentUser();
         boolean OBRESEC_ADMIN_CRIME = userService.can("OBRESEC_ADMIN_CRIME");
 
-        
 
         Object last = XUtil.isEmpty(filters.get("last"), null);
         Object from = XUtil.isEmpty(filters.get("from"), null);
