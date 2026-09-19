@@ -40,7 +40,7 @@ public class CrimeFacade extends AbstractFacade<Crime> implements CrimeFacadeLoc
     @Override
     public List load(int first, int pageSize, String sortField, Map<String, Object> filters) {
         User u = (User) userService.getCurrentUser();
-        boolean OBRESEC_ADMIN_CRIME = userService.access(ObresecFacade.Perm.OBRESEC_ADMIN_CRIME);
+        boolean OBRESEC_ADMIN_CRIME = userService.access("OBRESEC_ADMIN_CRIME");
 
         
 
