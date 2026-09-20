@@ -238,7 +238,7 @@ public class FileFacadeREST {
         }
 
         java.nio.file.Path path;
-
+        boolean isTmp;
         if (body.dst != null && !body.dst.isBlank()) {
 
             // El cliente ya indicó dónde guardarlo.
@@ -260,6 +260,7 @@ public class FileFacadeREST {
             }
 
             path = Files.createTempFile("___", suffix);
+            isTmp = true;
         }
 
         Files.copy(
@@ -270,7 +271,7 @@ public class FileFacadeREST {
         return Map.of(
                 "fileName", fileName,
                 "simplifiedFileName", simplifiedFileName,
-                "path", path.toAbsolutePath().toString());
+                (isTmp?"tempFile":"path"), path.toAbsolutePath().toString());
     }
 
     public static String simplifyFileName(String input) {
