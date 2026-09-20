@@ -220,11 +220,72 @@ public class FileFacadeREST {
     @Path("upload")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Object upload(MultipartBody body) throws IOException {
-        byte[] fileBytes = body.file.readAllBytes();
-        String filePath = body.dst;
-        System.out.println("dst="+body.dst);
-        Files.write(Paths.get(filePath), fileBytes);
-        return Map.of("file", body.dst, "path", Paths.get(filePath).toFile().getAbsolutePath());
+
+        String fileName = body.file.fileName();
+
+        String simplifiedFileName = simplifyFileName(fileName)
+                .replace(" ", "");
+
+        int dot = simplifiedFileName.lastIndexOf('.');
+
+        if (dot > -1) {
+            simplifiedFileName = simplifiedFileName.substring(0, dot).toUpperCase()
+                    + "."
+                    + simplifiedFileName.substring(dot + 1);
+        }
+
+        Path path;
+
+        if (body.dst != null && !body.dst.isBlank()) {
+
+            // El cliente ya indicó dónde guardarlo.
+            path = Paths.get(body.dst);
+
+            // Por si el directorio padre todavía no existe.
+            if (path.getParent() != null) {
+                Files.createDirectories(path.getParent());
+            }
+
+        } else {
+
+            // Sin dst: queda pendiente en temporales.
+            String suffix = ".tmp";
+
+            int extensionIndex = simplifiedFileName.lastIndexOf('.');
+            if (extensionIndex > -1) {
+                suffix = simplifiedFileName.substring(extensionIndex);
+            }
+
+            path = Files.createTempFile("___", suffix);
+        }
+
+        Files.copy(
+                body.file.uploadedFile(),
+                path,
+                StandardCopyOption.REPLACE_EXISTING);
+
+        return Map.of(
+                "fileName", fileName,
+                "simplifiedFileName", simplifiedFileName,
+                "path", path.toAbsolutePath().toString());
+    }
+
+    public static String simplifyFileName(String input) {
+        String name = Normalizer
+                .normalize(input.trim(), Normalizer.Form.NFD)
+                .replaceAll("[^\\p{ASCII}]", "")
+                .replaceAll("\\s+", "")
+                .replace("*", "");
+
+        int dot = name.lastIndexOf('.');
+
+        if (dot > -1) {
+            return name.substring(0, dot).toUpperCase()
+                    + "."
+                    + name.substring(dot + 1);
+        }
+
+        return name.toUpperCase();
     }
 
     public static class MultipartBody {
