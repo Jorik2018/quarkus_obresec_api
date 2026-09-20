@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-import org.jboss.resteasy.reactive.PartType;
 import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.BadRequestException;
 import jakarta.ws.rs.NotFoundException;
@@ -15,6 +14,8 @@ import jakarta.ws.rs.InternalServerErrorException;
 import jakarta.annotation.security.PermitAll;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.FormParam;
+import org.jboss.resteasy.reactive.PartType;
+import org.jboss.resteasy.reactive.RestForm;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.DELETE;
@@ -36,139 +37,124 @@ public class FileFacadeREST {
 
     }
 
+    @DELETE
+    @Path("{encodedPath}")
+    public Object deleteByPath(
+            @PathParam("encodedPath") String encodedPath) {
 
+        String padding = "=".repeat(
+                (4 - encodedPath.length() % 4) % 4);
 
-@DELETE
-@Path("{encodedPath}")
-public Object deleteByPath(
-        @PathParam("encodedPath") String encodedPath) {
+        String path = new String(
+                Base64.getUrlDecoder().decode(encodedPath + padding),
+                StandardCharsets.UTF_8);
 
-    String padding = "=".repeat(
-        (4 - encodedPath.length() % 4) % 4
-    );
-
-    String path = new String(
-        Base64.getUrlDecoder().decode(encodedPath + padding),
-        StandardCharsets.UTF_8
-    );
-
-    return deleteFile(path);
-}
-
-
-@DELETE
-@Consumes(MediaType.APPLICATION_JSON)
-public Object deleteByBody(Map<String, Object> body) {
-
-    String path = body != null
-            ? (String) body.get("path")
-            : null;
-
-    return deleteFile(path);
-}
-
-
-private Object deleteFile(String path) {
-
-    if (path == null || path.isBlank()) {
-        throw new BadRequestException("Path is required");
+        return deleteFile(path);
     }
 
-    java.nio.file.Path file = java.nio.file.Paths.get(path);
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Object deleteByBody(Map<String, Object> body) {
 
-    if (!Files.exists(file)) {
-        throw new NotFoundException(
-            "File not found: " + path
-        );
+        String path = body != null
+                ? (String) body.get("path")
+                : null;
+
+        return deleteFile(path);
     }
 
-    try {
-        Files.delete(file);
-    } catch (IOException e) {
-        e.printStackTrace();
+    private Object deleteFile(String path) {
 
-        throw new InternalServerErrorException(
-            "Could not delete: " + path + " - " + e.getMessage()
-        );
-    }
+        if (path == null || path.isBlank()) {
+            throw new BadRequestException("Path is required");
+        }
 
-    return Map.of(
-        "path", path,
-        "deleted", true
-    );
-}
+        java.nio.file.Path file = java.nio.file.Paths.get(path);
 
-    @POST
-public Object get(Map<String, Object> m) {
-    String f = (String) m.get("current");
+        if (!Files.exists(file)) {
+            throw new NotFoundException(
+                    "File not found: " + path);
+        }
 
-    ArrayList<Map<String, Object>> list = new ArrayList<>();
-    ArrayList<Map<String, Object>> parents = new ArrayList<>();
+        try {
+            Files.delete(file);
+        } catch (IOException e) {
+            e.printStackTrace();
 
-    if (f == null) {
-        File[] drives = File.listRoots();
-
-        if (drives != null) {
-            for (File drive : drives) {
-                list.add(Map.of(
-                    "path", drive.getAbsolutePath(),
-                    "type", 'D'
-                ));
-            }
+            throw new InternalServerErrorException(
+                    "Could not delete: " + path + " - " + e.getMessage());
         }
 
         return Map.of(
-            "parents", parents,
-            "data", list
-        );
+                "path", path,
+                "deleted", true);
     }
 
-    File directory = new File(f);
+    @POST
+    public Object get(Map<String, Object> m) {
+        String f = (String) m.get("current");
 
-    File[] files = directory.listFiles();
+        ArrayList<Map<String, Object>> list = new ArrayList<>();
+        ArrayList<Map<String, Object>> parents = new ArrayList<>();
 
-    if (files != null) {
-        for (File file : files) {
-            list.add(Map.of(
-                "path", file.getAbsolutePath(),
-                "name", file.getName(),
-                "type", file.isFile() ? 'F' : 'D',
-                "length", file.length()
-            ));
+        if (f == null) {
+            File[] drives = File.listRoots();
+
+            if (drives != null) {
+                for (File drive : drives) {
+                    list.add(Map.of(
+                            "path", drive.getAbsolutePath(),
+                            "type", 'D'));
+                }
+            }
+
+            return Map.of(
+                    "parents", parents,
+                    "data", list);
         }
+
+        File directory = new File(f);
+
+        File[] files = directory.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                list.add(Map.of(
+                        "path", file.getAbsolutePath(),
+                        "name", file.getName(),
+                        "type", file.isFile() ? 'F' : 'D',
+                        "length", file.length()));
+            }
+        }
+
+        File current = directory;
+
+        while (current != null) {
+            String path = current.getAbsolutePath();
+
+            // D:/ o D:\ -> D:
+            if (current.getParentFile() == null
+                    && path.matches("^[A-Za-z]:[/\\\\]$")) {
+                path = path.substring(0, 2);
+            }
+
+            parents.add(
+                    0,
+                    Map.of(
+                            "name",
+                            current.getName().isEmpty()
+                                    ? path
+                                    : current.getName(),
+                            "path",
+                            path));
+
+            current = current.getParentFile();
+        }
+
+        return Map.of(
+                "parents", parents,
+                "data", list);
     }
-
-File current = directory;
-
-while (current != null) {
-    String path = current.getAbsolutePath();
-
-    // D:/ o D:\ -> D:
-    if (current.getParentFile() == null
-            && path.matches("^[A-Za-z]:[/\\\\]$")) {
-        path = path.substring(0, 2);
-    }
-
-    parents.add(
-        0,
-        Map.of(
-            "name",
-            current.getName().isEmpty()
-                ? path
-                : current.getName(),
-            "path",
-            path
-        )
-    );
-
-    current = current.getParentFile();
-}
-
-    return Map.of(
-        "parents", parents,
-        "data", list
-    );
-}
 
     @POST
     @Path("download")
@@ -236,17 +222,18 @@ while (current != null) {
     public Object upload(MultipartBody body) throws IOException {
         byte[] fileBytes = body.file.readAllBytes();
         String filePath = body.dst;
+        System.out.println("dst="+body.dst);
         Files.write(Paths.get(filePath), fileBytes);
         return Map.of("file", body.dst, "path", Paths.get(filePath).toFile().getAbsolutePath());
     }
 
     public static class MultipartBody {
 
-        @FormParam("file")
+        @RestForm("file")
         @PartType(MediaType.APPLICATION_OCTET_STREAM)
         public InputStream file;
 
-        @FormParam("dst")
+        @RestForm("dst")
         @PartType(MediaType.TEXT_PLAIN)
         public String dst;
 
