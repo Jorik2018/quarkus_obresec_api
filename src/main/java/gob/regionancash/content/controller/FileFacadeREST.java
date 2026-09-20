@@ -238,28 +238,24 @@ public class FileFacadeREST {
         }
 
         java.nio.file.Path path;
-        boolean isTmp = false;
+        boolean isTmp;
+
         if (body.dst != null && !body.dst.isBlank()) {
 
-            // El cliente ya indicó dónde guardarlo.
             path = Paths.get(body.dst);
 
-            // Por si el directorio padre todavía no existe.
             if (path.getParent() != null) {
                 Files.createDirectories(path.getParent());
             }
 
+            isTmp = false;
+
         } else {
 
-            // Sin dst: queda pendiente en temporales.
-            String suffix = ".tmp";
+            path = Files.createTempFile(
+                    "___",
+                    simplifiedFileName);
 
-            int extensionIndex = simplifiedFileName.lastIndexOf('.');
-            if (extensionIndex > -1) {
-                suffix = simplifiedFileName.substring(extensionIndex);
-            }
-
-            path = Files.createTempFile("___", suffix);
             isTmp = true;
         }
 
@@ -268,10 +264,20 @@ public class FileFacadeREST {
                 path,
                 StandardCopyOption.REPLACE_EXISTING);
 
+        if (isTmp) {
+            String tmp = "f_" + System.currentTimeMillis();
+
+            return Map.of(
+                    "fileName", fileName,
+                    "tmp", tmp,
+                    "tempFile", path.getFileName().toString(),
+                    "simplifyFileName", simplifiedFileName);
+        }
+
         return Map.of(
                 "fileName", fileName,
-                "simplifiedFileName", simplifiedFileName,
-                (isTmp?"tempFile":"path"), path.toAbsolutePath().toString());
+                "simplifyFileName", simplifiedFileName,
+                "path", path.getFileName().toString());
     }
 
     public static String simplifyFileName(String input) {
