@@ -238,7 +238,7 @@ public class FileFacadeREST {
         }
 
         java.nio.file.Path path;
-        boolean isTmp;
+        boolean isTmp = false;
         if (body.dst != null && !body.dst.isBlank()) {
 
             // El cliente ya indicó dónde guardarlo.
