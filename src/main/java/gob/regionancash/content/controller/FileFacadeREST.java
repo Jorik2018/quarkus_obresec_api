@@ -234,7 +234,7 @@ public class FileFacadeREST {
                     + simplifiedFileName.substring(dot + 1);
         }
 
-        Path path;
+        java.nio.file.Path path;
 
         if (body.dst != null && !body.dst.isBlank()) {
 
