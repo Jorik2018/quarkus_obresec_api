@@ -295,7 +295,7 @@ public class FileFacadeREST {
 
         @RestForm("file")
         @PartType(MediaType.APPLICATION_OCTET_STREAM)
-        public InputStream file;
+        public FileUpload file;
 
         @RestForm("dst")
         @PartType(MediaType.TEXT_PLAIN)
