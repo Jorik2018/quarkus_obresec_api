@@ -93,74 +93,88 @@ public class FileFacadeREST {
                 "deleted", true);
     }
 
-    @POST
-    public Object get(Map<String, Object> m) {
-        String f = (String) m.get("current");
+@POST
+public Object get(Map<String, Object> m) {
+    String f = (String) m.get("current");
 
-        ArrayList<Map<String, Object>> list = new ArrayList<>();
-        ArrayList<Map<String, Object>> parents = new ArrayList<>();
+    ArrayList<Map<String, Object>> list = new ArrayList<>();
+    ArrayList<Map<String, Object>> parents = new ArrayList<>();
 
-        if (f == null) {
-            File[] drives = File.listRoots();
+    if (f == null) {
+        File[] drives = File.listRoots();
 
-            if (drives != null) {
-                for (File drive : drives) {
-                    list.add(Map.of(
-                            "path", drive.getAbsolutePath(),
-                            "type", 'D'));
+        if (drives != null) {
+            for (File drive : drives) {
+                String path = drive.getAbsolutePath();
+
+                if (path.matches("^[A-Za-z]:[/\\\\]$")) {
+                    path = path.substring(0, 2);
                 }
-            }
 
-            return Map.of(
-                    "parents", parents,
-                    "data", list);
-        } else if (f.startsWith(":")) {
-            f = f + "\\";
-        }
-
-        File directory = new File(f);
-
-        File[] files = directory.listFiles();
-
-        if (files != null) {
-            for (File file : files) {
                 list.add(Map.of(
-                        "path", file.getAbsolutePath(),
-                        "name", file.getName(),
-                        "type", file.isFile() ? 'F' : 'D',
-                        "length", file.length()));
+                        "path", path,
+                        "type", 'D'
+                ));
             }
-        }
-
-        File current = directory;
-
-        while (current != null) {
-            String path = current.getAbsolutePath();
-
-            // D:/ o D:\ -> D:
-            if (current.getParentFile() == null
-                    && path.matches("^[A-Za-z]:[/\\\\]$")) {
-                path = path.substring(0, 2);
-            }
-
-            parents.add(
-                    0,
-                    Map.of(
-                            "name",
-                            current.getName().isEmpty()
-                                    ? path
-                                    : current.getName(),
-                            "path",
-                            path));
-
-            current = current.getParentFile();
         }
 
         return Map.of(
                 "parents", parents,
-                "data", list);
+                "data", list
+        );
     }
 
+    // "D:" debe interpretarse como "D:\"
+    if (f.matches("^[A-Za-z]:$")) {
+        f += File.separator;
+    }
+
+    File directory = new File(f);
+
+    File[] files = directory.listFiles();
+
+    if (files != null) {
+        for (File file : files) {
+            list.add(Map.of(
+                    "path", file.getAbsolutePath(),
+                    "name", file.getName(),
+                    "type", file.isFile() ? 'F' : 'D',
+                    "length", file.length()
+            ));
+        }
+    }
+
+    File current = directory;
+
+    while (current != null) {
+        String path = current.getAbsolutePath();
+
+        // D:\ -> D:
+        if (current.getParentFile() == null
+                && path.matches("^[A-Za-z]:[/\\\\]$")) {
+            path = path.substring(0, 2);
+        }
+
+        parents.add(
+                0,
+                Map.of(
+                        "name",
+                        current.getName().isEmpty()
+                                ? path
+                                : current.getName(),
+                        "path",
+                        path
+                )
+        );
+
+        current = current.getParentFile();
+    }
+
+    return Map.of(
+            "parents", parents,
+            "data", list
+    );
+}
     @POST
     @Path("download")
     @PermitAll
