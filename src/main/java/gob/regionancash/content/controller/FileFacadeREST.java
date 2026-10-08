@@ -114,6 +114,8 @@ public class FileFacadeREST {
             return Map.of(
                     "parents", parents,
                     "data", list);
+        } else if (f.startsWith(":")) {
+            f = f + "\\";
         }
 
         File directory = new File(f);
