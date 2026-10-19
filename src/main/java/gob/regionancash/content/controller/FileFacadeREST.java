@@ -282,13 +282,11 @@ public class FileFacadeREST {
             return Map.of(
                     "fileName", fileName,
                     "tmp", tmp,
-                    "aaaa",9,
                     "tempFile", path.getFileName().toString(),
                     "simplifyFileName", simplifiedFileName);
         }
 
         return Map.of(
-            "zzzz",9,
                 "fileName", fileName,
                 "simplifyFileName", simplifiedFileName,
                 "path", path.getFileName().toString());
